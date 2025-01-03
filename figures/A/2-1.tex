@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=2.0,inner sep=2pt]
+  \draw[ball color=yellow!80!green](0,0.4)arc(30:330:0.8);
+  \draw[ball color=yellow!80!green](0,0.4)arc(150:-150:0.8);
+  \draw[<->](-0.69,0)--(0,0)node[midway,above]{\qty{0.99}{\text{\AA}}};
+  \draw[<->](0.69,0)--(0,0)node[midway,above]{\qty{0.99}{\text{\AA}}};
+  \node (a) at (0,-0.85)[left]{\ce{Cl}};
+  \node at (0,-0.85){:};
+  \node (b) at (0,-0.85)[right]{\ce{Cl}};
+  \node at (a.north)[rotate=90]{:};
+  \node at (a.south)[rotate=90]{:};
+  \node at (b.north)[rotate=90]{:};
+  \node at (b.south)[rotate=90]{:};
+  \node at (b.east){:};
+  \node at (a.west){:};
+\end{tikzpicture}
+\end{document}

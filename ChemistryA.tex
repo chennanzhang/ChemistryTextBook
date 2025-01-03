@@ -1,0 +1,40 @@
+\documentclass[colortheme=magenta,txconfig=txchemistry.cfg]{textbook}
+\stylesetup{ 
+  % fullwidth-stop = catcode,
+  boldemph = false,
+}
+\Booksetup{
+  BookSeries  = 中学经典教材丛书, 
+  BookTitle   = 高中化学（甲种本）,
+  BookTitle*  = {Textbook for Middle School Chemistry},
+  SubTitle    = 第一册,
+  SubTitle*   = Volume I,
+  BriefIntro    = 
+    { 
+      本书供六年制中学高中一年级选用, 每周授课 3 课时。本书是在中小学通用教材化学编写组编的《全日制十年制学校初中课本（试用本）化学》卤素和碱金属一章和《全日制十年制学校高中课本（试用本）化学》第一册硫、硫酸、摩尔反应热和物质结构、元素周期律部分内容的基础上, 吸收了几年来各地在试用中的一些教学经验和意见编写成的。参加本书编写工作的有许国培、程名荣、张健如、胡美玲、王存志等。北京师范大学化学系的何少华也参加了编写工作。责任编辑是许国培, 审定者是武永兴、梁英豪。希望广大教师和研究中学化学教学的同志提出批评和修改意见。
+    },
+  DedicatedTo   = 奔赴高考的莘莘学子,
+  % CoverGraph    = graphics/A.pdf,
+  AuthorList    = {人民教育出版社化学室},
+  ReleaseDate   = 2024-12-12,
+  % Url           = https://www.tjad.cn,
+  % ISBN          = 978-7-302-11622-6,
+  % Publisher     = 同济极客出版社,
+  % Logo          = graphics/logo.pdf,
+  % Editor        = {张晨南},
+  WrittenStyle  = 编,
+}
+\graphicspath{{figures/A/}}
+\begin{document}
+\frontmatter
+\tableofcontents
+\mainmatter
+\input{contents/1-1.tex}
+\input{contents/1-2.tex}
+\input{contents/1-3.tex}
+\input{contents/1-4.tex}
+\input{contents/1-5.tex}
+% \input{contents/app1-1.tex}
+\appendix
+% \input{contents/app1-2.tex} % ok
+\end{document}
