@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{chemmacros,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth]
+  \node [opacity=0.7]{\orbital[angle=90,scale=2,color=red!50]{p}};
+  \draw(225:2)node[below]{$y$}--(45:2);
+  \draw(0,-2)node[below]{$2p_z$}--(0,2)node[above]{$z$};
+  \draw(-2,0)--(2,0)node[right]{$x$};
+\end{tikzpicture}
+\end{document}

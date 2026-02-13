@@ -1,0 +1,53 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{positioning,patterns}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=0.8]
+  \begin{scope}[xshift=-1.5cm]
+    \draw[fill=darkgray](-0.7,-2.65)--(-0.35,-2.65)--(-0.3,-2.55)--(0.3,-2.55)--(0.35,-2.65)--(0.7,-2.65)--(0.6,-2.5)--(-0.6,-2.5);
+    \fill[left color=gray,right color=gray,middle color=white](-0.05,-2.5)rectangle(0.05,1.0);
+  \end{scope}
+  \begin{scope}[xshift=1.5cm]
+    \draw[fill=darkgray](-0.7,-2.65)--(-0.35,-2.65)--(-0.3,-2.55)--(0.3,-2.55)--(0.35,-2.65)--(0.7,-2.65)--(0.6,-2.5)--(-0.6,-2.5);
+    \fill[left color=gray,right color=gray,middle color=white](-0.05,-2.5)rectangle(0.05,1.0);
+  \end{scope}
+  \begin{scope}[rotate=-0.5]
+    \draw[->,semithick](-3.0,0)node[left]{\ce{CO}}--(-2.6,0);
+    \draw[double,double distance=1.5pt](-2.5,0)--(-1.75,0)(1.75,0)[rounded corners=4pt]--(3.0,0)--++(-89.5:2.3);
+    \draw[double=brown,double distance=2pt](2.4,0)--(2.8,0);
+    \fill[top color=darkgray,bottom color=darkgray,middle color=white](-2.25,0.25)rectangle(-1.85,-0.25)(2.25,0.25)rectangle(1.85,-0.25);
+    \fill[pattern=crosshatch dots,pattern color=brown!70!red](-0.5,-0.25)to[bend left=40](0.5,-0.25)--(-0.5,-0.25);
+    \draw[fill=cyan!10!white,fill opacity=0.4](-2.04,0.29)arc(180:270:0.04)--(2,0.25)arc(-90:0:0.04)--(2.04,-0.29)arc(0:90:0.04)--(-2,-0.25)arc(90:180:0.04)--cycle;
+    \draw[fill=darkgray](-1.6,0.25)rectangle(-1.4,0.2)(-1.6,-0.25)rectangle(-1.4,-0.2)(1.6,0.25)rectangle(1.4,0.2)(1.6,-0.25)rectangle(1.4,-0.2);
+    \draw[line width=1pt](-1.58,0.30)--(-1.54,0.26)--(-1.46,0.26)--(-1.42,0.30)(1.58,0.30)--(1.54,0.26)--(1.46,0.26)--(1.42,0.30);
+    \draw(0,-0.1)--++(75:0.7)node[above]{\ce{Fe2O3}};
+  \end{scope}
+  \begin{scope}[yshift=-1.45cm,scale=1.2]
+    \fill[top color=red,bottom color=orange](-0.35,1)..controls(-0.35,0.8)and(-0.075,0.8)..(-0.075,0.7)--(0.075,0.7)..controls(0.075,0.8)and(0.35,0.8)..(0.35,1);
+    \fill[top color=red!60!orange,bottom color=orange!60](-0.21,1)..controls(-0.21,0.8)and(-0.045,0.8)..(-0.045,0.7)--(0.045,0.7)..controls(0.045,0.8)and(0.21,0.8)..(0.21,1);
+    \fill[top color=red!30!orange,bottom color=orange!30](-0.07,1)..controls(-0.07,0.8)and(-0.015,0.8)..(-0.015,0.7)--(0.015,0.7)..controls(0.015,0.8)and(0.07,0.8)..(0.07,1);
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+    \draw[fill=brown](-0.4,0)rectangle(0.4,-1);
+  \end{scope}
+  \begin{scope}[xshift=3.1cm,yshift=-0.5cm]
+    \draw[double,double distance=1.5pt,rounded corners=4pt](0.1,-0.25)--(0.1,0.5)--(0.8,0.5);
+    \fill[left color=gray,right color=gray,middle color=white](0.25,0.2)rectangle(-0.25,-0.15);
+    \fill[cyan!60!white,opacity=0.3](-0.25,-1.5)--(-0.25,-1.9)arc(180:360:0.25)--(0.25,-1.5);
+    \draw[fill=cyan!10!white,fill opacity=0.4](-0.29,0)arc(90:0:0.04)--(-0.25,-1.9)arc(180:360:0.25)--(0.25,-0.04)arc(180:90:0.04)--cycle;
+    \draw(0.1,-1.7)--++(45:0.5)node[right]{石灰水};
+    \foreach \x/\y in{-0.02/-1.85,0.02/-1.7,0.05/-1.6}
+    {
+      \draw [very thin,fill=cyan!5!white](\x,\y)circle(1pt);
+    }
+  \end{scope}
+  \draw[very thick](-4,-2.68)--(4,-2.68);
+\end{tikzpicture}
+\end{document}

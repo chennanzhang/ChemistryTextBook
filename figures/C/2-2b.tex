@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  % \fill[ball color=white](90:1.4)circle(0.2);
+  \fill[ball color=white](-20:0.8)circle(0.4);
+  \fill[ball color=white](-150:0.7)circle(0.4);
+  \fill[ball color=gray](0,0)circle(0.8);
+  \fill[ball color=white](-88:0.7)circle(0.4);
+  \fill[ball color=white,rounded corners=2pt](120:0.7)arc(210:-30:0.4)to[bend left](120:0.7);
+\end{tikzpicture}
+\end{document}

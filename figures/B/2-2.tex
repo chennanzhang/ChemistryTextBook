@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=2,inner sep=2pt]
+  \tkzDefPoints{-0.5/0.1/A,0.1/-0.3/B,-0.05/0.25/C,0.5/0/D}
+  \fill[ball color=white](A)circle(0.4);
+  \fill[ball color=white](D)circle(0.4);
+  \fill[ball color=white](C)circle(0.6);
+  \fill[ball color=white](B)circle(0.4);
+  \tkzDrawPolygon(A,B,C)
+  \tkzDrawPolygon(B,C,D)
+  \tkzDrawSegments[densely dashed](A,D)
+\end{tikzpicture}
+\end{document}

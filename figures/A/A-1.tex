@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{chemmacros,siunitx}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+\draw[rounded corners=3pt,fill=lightgray!20](-0.2,0)--(-0.15,2.3)--(102:2.5)--(102:3.1)arc(102:78:3.1)--(78:2.5)--(0.15,2.3)--(0.2,0);
+\draw[fill=lightgray](-3.2,-0.7)--(3.2,-0.7)--(3.6,-1.1)--(-3.6,-1.1)--cycle;
+\foreach \x in {1,2,3,4,6,7,8,9}
+  {
+    \draw[ultra thin](90+\x:3.0)--++(90+\x:-0.3);
+    \draw[ultra thin](90-\x:3.0)--++(90-\x:-0.3);
+  }
+\foreach \x in {0,5,10}
+  {
+    \draw[ultra thin](90+\x:3.0)--++(90+\x:-0.4);
+    \draw[ultra thin](90-\x:3.0)--++(90-\x:-0.4);
+  }
+\draw[-Diamond,very thin,red](0,0)--(90:3);
+\draw[ultra thick](-3.6,0)--(3.6,0);
+\fill[lightgray](-2.8,-0.2)--(-2.8,0.2)--(-0.2,0.2)--(0,0.4)--(0.2,0.2)--(2.8,0.2)--(2.8,-0.2);
+\foreach \x in {-2.5,2.5}
+{
+  \fill[left color=gray,right color=gray,middle color=white](\x-0.1,-0.3)rectangle++(0.2,0.9);
+  \fill[left color=gray,right color=gray,middle color=white](\x-0.05,-0.3)rectangle++(0.1,-0.6);
+  \draw[ball color=darkgray](\x-1.4,1.2)--(\x-0.8,0.8)to[bend right=25](\x+0.8,0.8)--(\x+1.4,1.2)--cycle;
+  \draw[fill=lightgray!30](\x,1.38)ellipse(1.5 and 0.5);
+  \draw(\x+1.19,1.1)arc(-10:190:1.2 and 0.4);
+  }
+  \fill[top color=gray,bottom color=gray,middle color=white](3.3,-0.07)rectangle++(0.08,0.14);
+  \fill[top color=gray,bottom color=gray,middle color=white](-3.3,-0.07)rectangle++(-0.08,0.14);
+  \fill[left color=darkgray,right color=darkgray,middle color=white](-0.2,-0.9)--(-0.2,-0.1)arc(180:0:0.2)--(0.2,-0.9)arc(0:-180:0.2 and 0.05);
+  \draw[fill=lightgray](-2.3,-0.3)rectangle(2.3,-0.65);
+  \draw(-2.1,-0.3)--(-2.1,0)(2.1,-0.3)--(2.1,0);
+  \fill(-2.1,0)circle(1pt)(2.1,0)circle(1pt);
+  \foreach \x in {0,1,2,3,4}
+  {
+    \draw[very thin](-2.1+0.8*\x,-0.4)--++(0,-0.18);
+    \draw[very thin](-2.1+0.8*\x+0.4,-0.4)--++(0,-0.15);
+    \foreach \y in {1,2,3,4,6,7,8,9}
+    {
+      \draw[very thin](-2.1+0.8*\x+0.08*\y,-0.4)--++(0,-0.1);
+    }
+  }
+  \draw[very thin](1.9,-0.4)--++(0,-0.18);
+  \fill[gray](-2.1,-0.25)rectangle++(0.2,-0.45);
+  \draw[fill=darkgray](-3.6,-1.1)--(-3.8,-1.3)--++(0,-0.1)--++(0.5,0)--++(0.15,0.15)--(3.15,-1.25)--++(0.15,-0.15)--++(0.5,0)--++(0,0.1)--(3.6,-1.1)--cycle;
+  \draw[very thin](98:3.05)--++(-0.5,0)node[left]{标尺};
+  \draw[very thin](-2,-0.4)--++(-1.5,0)node[left]{游码};
+  \draw[very thin](0,2.6)--++(1.0,0)node[right]{指针};
+  \draw[very thin](3.7,1.5)--++(0.5,0)node[right]{托盘};
+  \draw[very thin](2.0,-0.5)--++(1.0,0)node[right]{刻度尺};
+  \draw[very thin](-3.3,0.05)--++(135:0.5)--++(-0.5,0)node[left]{螺丝};
+\end{tikzpicture}
+\end{document}

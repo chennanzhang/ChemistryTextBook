@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,mhchem}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0]
+  \useasboundingbox(-0.4,-0.2)rectangle(5,4);
+  \draw[->](-0.2,0)--(5,0);
+  \draw[->](-0.2,0)--(-0.2,4);
+  \draw[semithick](0.5,1.2)..controls(1.5,1.2)and(1.6,3.8)..(2.0,3.8)..controls(2.4,3.8)and(2.6,0.7)..(4.2,0.7);
+  \draw[semithick,densely dashed](0.5,1.2)..controls(1.5,1.2)and(1.6,2.8)..(2.0,2.8)..controls(2.4,2.8)and(2.6,0.7)..(4.2,0.7)node[below left]{生成物};
+  \draw[very thin](0.3,1.2)node[below right]{反应物}--(2.5,1.2)(0.3,3.8)--(2.0,3.8)(1.0,2.8)--(2.0,2.8);
+  \draw[<->,very thin](0.5,1.2)--(0.5,3.8)node[midway,left]{$E_1$};
+  \draw[<->,very thin](1.2,1.2)--(1.2,2.8)node[midway,left]{$E_2$};
+  \draw[very thin](2.32,3.2)--++(0.5,0)node[right]{无催化剂};
+  \draw[very thin](2.41,2.2)--++(0.5,0)node[right]{有催化剂};
+\end{tikzpicture}
+\end{document}

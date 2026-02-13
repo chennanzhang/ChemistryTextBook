@@ -1,0 +1,97 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\retortstand}[4][]{
+  \begin{scope}[#1]
+    \draw[fill=darkgray](0,0)--++(#3,0)--++(0.05,-0.05)--++(0,-0.15)--++(-0.4,0)--++(0,0.05)--++(-#2-#3+0.7,0)--++(0,-0.05)--++(-0.4,0)--++(0,0.15)--++(0.05,0.05)--cycle;
+    \draw(-#2-0.05,-0.05)--(#3+0.05,-0.05);
+    \fill[left color=lightgray,right color=lightgray,middle color=white](-0.05,0)rectangle(0.05,#4);
+    \fill[left color=gray,right color=gray,middle color=white](-0.07,0)rectangle(0.07,0.07);
+  \end{scope}
+}
+\newcommand{\AcidBurett}[3][]{
+\begin{scope}[#1]
+    \fill[cyan!30!white](-0.03,0)arc(270:180:0.04)--(-0.07,#3)to[bend right=40](0.07,#3)--(0.07,0.04)arc(0:-90:0.04);
+  \draw[fill=cyan!10!white,fill opacity=0.2](-0.03,0)arc(270:180:0.04)--(-0.07,#2+0.4)arc(0:90:0.03)--(0.1,#2+0.43)arc(90:180:0.03)--(0.07,0.04)arc(0:-90:0.04)--++(0,-0.7)
+  --++(-0.02,-0.2)--++(-0.02,0)--++(-0.02,0.2)--cycle;
+  \foreach \x in {0.5,1,...,#2}
+  {
+    \foreach \y in {1,2,3,4,6,7,8,9}
+    {
+      \draw[ultra thin](0.07,\x-0.05*\y)--++(-0.05,0);
+    }
+    \draw[ultra thin](0.07,\x)--++(-0.1,0);
+    \draw[ultra thin](0.07,\x-0.25)--++(-0.08,0);
+  }
+  \fill[cyan!20!gray](-0.1,-0.14)rectangle(0.1,0);
+  \draw[line cap=round,thick,gray](-0.13,-0.07)--(0.13,-0.07)(0.13,-0.15)--(0.13,-0.01);
+  % \draw(0,-0.35)circle(1.8pt);
+  % \draw[double=brown,double distance=1.2pt](0,-0.20)--(0,-0.5);
+  % \fill[ball color=brown](0,-0.35)circle(1.6pt);
+  % \draw[double=brown,double distance=1.6pt](0,0)--(0,-0.20)(0,-0.5)--++(0,-0.2);
+\end{scope}
+}
+\newcommand{\AlkaliBurett}[3][]{
+\begin{scope}[#1]
+  \fill[cyan!30!white](-0.03,0)arc(270:180:0.04)--(-0.07,#3)to[bend right=40](0.07,#3)--(0.07,0.04)arc(0:-90:0.04);
+  \draw[fill=cyan!10!white,fill opacity=0.2](-0.03,0)arc(270:180:0.04)--(-0.07,#2+0.4)arc(0:90:0.03)--(0.1,#2+0.43)arc(90:180:0.03)--(0.07,0.04)arc(0:-90:0.04)--++(0,-0.7)
+  --++(-0.02,-0.2)--++(-0.02,0)--++(-0.02,0.2)--cycle;
+  \foreach \x in {0.5,1,...,#2}
+  {
+    \foreach \y in {1,2,3,4,6,7,8,9}
+    {
+      \draw[ultra thin](0.07,\x-0.05*\y)--++(-0.05,0);
+    }
+    \draw[ultra thin](0.07,\x)--++(-0.1,0);
+    \draw[ultra thin](0.07,\x-0.25)--++(-0.08,0);
+  }
+  \draw(0,-0.35)circle(1.8pt);
+  \draw[double=brown,double distance=1.2pt](0,-0.20)--(0,-0.5);
+  \fill[ball color=brown](0,-0.35)circle(1.6pt);
+  \draw[double=brown,double distance=1.6pt](0,0)--(0,-0.20)(0,-0.5)--++(0,-0.2);
+\end{scope}
+}
+\newcommand{\ConicalFlask}[3][]{
+  \begin{scope}[#1]
+    \fill[#3,rounded corners=5pt](0.65-#2/3,#2)--(0.65,0)--(-0.65,0)--(-0.65+#2/3,#2);
+    \foreach \x/\y in {0/1.0,0.05/0.8}
+    \draw[very thin,fill=cyan!20!white](\x,\y)to[in=180,out=-90]+(0,-0.1)to[in=-90,out=0]cycle;
+    \draw[fill=cyan!5!white,fill opacity=0.2](-0.15,1.5)--(-0.15,1.8)arc(0:90:0.05)--(0.20,1.85)arc(90:180:0.05)[rounded corners=5pt]--(0.15,1.5)--(0.65,0)--(-0.65,0)--(-0.15,1.5)--cycle;
+  \end{scope}
+}
+\newcommand{\BurettClip}[2][]{
+  \begin{scope}[#1]
+    \begin{scope}[on background layer]
+      \draw[fill=lightgray](-#2+0.3,0.3)to[in=0,out=150]+(-0.5,0.3)to[out=180,in=180]+(-0.5,0.25)to[out=0,in=150](-#2+0.3,0.2);
+      \draw[fill=lightgray](-#2+0.3,-0.3)to[in=0,out=210]+(-0.5,-0.3)to[out=180,in=180]+(-0.5,-0.25)to[out=0,in=210](-#2+0.3,-0.2);
+      \draw[fill=lightgray](#2-0.3,0.3)to[in=180,out=30]+(0.5,0.3)to[out=0,in=0]+(0.5,0.25)to[out=180,in=30](#2-0.3,0.2);
+      \draw[fill=lightgray](#2-0.3,-0.3)to[in=180,out=-30]+(0.5,-0.3)to[out=0,in=0]+(0.5,-0.25)to[out=180,in=-30](#2-0.3,-0.2);
+    \end{scope}
+    \fill[lightgray](-#2+0.3,0.3)rectangle(#2-0.3,-0.3);
+    \draw[fill=lightgray](-#2+0.3,0.15)to[in=0,out=150]+(-0.55,0.2)to[out=180,in=180]+(-0.55,0.15)to[out=0,in=150](-#2+0.3,0.05);
+    \draw[fill=lightgray](-#2+0.3,-0.15)to[in=0,out=210]+(-0.55,-0.2)to[out=180,in=180]+(-0.55,-0.15)to[out=0,in=210](-#2+0.3,-0.05);
+    \draw[fill=lightgray](#2-0.3,0.15)to[in=180,out=30]+(0.55,0.2)to[out=0,in=0]+(0.55,0.15)to[out=180,in=30](#2-0.3,0.05);
+    \draw[fill=lightgray](#2-0.3,-0.15)to[in=180,out=-30]+(0.55,-0.2)to[out=0,in=0]+(0.55,-0.15)to[out=180,in=-30](#2-0.3,-0.05);
+    \draw(-#2+0.3,0.3)--(#2-0.3,0.3)(-#2+0.3,-0.3)--(#2-0.3,-0.3);
+    \draw(-#2+0.3,0.2)--(-#2+0.3,0.15)(-#2+0.3,-0.2)--(-#2+0.3,-0.15)(-#2+0.3,0.05)--(-#2+0.3,-0.05);
+    \draw(#2-0.3,0.2)--(#2-0.3,0.15)(#2-0.3,-0.2)--(#2-0.3,-0.15)(#2-0.3,0.05)--(#2-0.3,-0.05);
+    \draw[line cap=round,very thick](-135:0.1)--(45:0.1);
+    \fill[ball color=black](0,0)circle(2pt);
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \retortstand{1.8}{2.2}{10};
+  \AcidBurett[xshift=1cm,yshift=2.2cm]{6}{5.03}
+  \AlkaliBurett[xshift=-1cm,yshift=2.2cm]{6}{5.03}
+  \ConicalFlask[xshift=1cm]{0.4}{cyan!20!white}
+  \BurettClip[yshift=6cm]{1}
+  \node at (-1.1,8.5)[left]{\parbox{1em}{\linespread{1}\selectfont 碱\\式\\滴\\定\\管}}; 
+  \node at (1.1,8.5)[right]{\parbox{1em}{\linespread{1}\selectfont 酸\\式\\滴\\定\\管}}; 
+\end{tikzpicture}
+\end{document}

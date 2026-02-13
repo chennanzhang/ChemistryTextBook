@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \useasboundingbox(-2,-1)rectangle(2,1);
+  \fill[ball color=white](-1.2,0)circle(0.5);
+  \fill[ball color=gray](0,0.8)to[in=90,out=120](-1.2,0)to[out=-90,in=-120](0,-0.8);
+  \fill[ball color=gray](0,0.8)to[in=90,out=60](1.2,0)to[out=-90,in=-60](0,-0.8)to[out=120,in=-120](0,0.8);
+  \fill[ball color=white]([shift=(110:0.5)]1.2,0)arc(110:-110:0.5)to[bend left]([shift=(110:0.5)]1.2,0);
+\end{tikzpicture}
+\end{document}

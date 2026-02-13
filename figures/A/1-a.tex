@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{trees}
+\tikzset{
+  method/.style={rectangle,fill=#1!20!white,draw=#1!50!black}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \node (root) [method=red]
+  {\parbox{6em}{\qty{1}{mol} \quad 阿佛加德罗常数（\num{6.02e23}）个物质的微粒}};
+  \node at(root.east)[inner sep=0pt,outer sep=0pt]{}
+  [edge from parent fork right,grow=right]
+  child {node [method=green,right]{\parbox{10cm}{\qty{1}{L} $1M$ 溶液中含有溶质的质量\\ 如 \qty{324}{g} 蔗糖，\qty{58.5}{g} 氯化钠，\qty{98.0}{g/mol} 硫酸，\qty{36.5}{g} 氯化氢。}}}
+  child {node [method=green,right]{\parbox{10cm}{气体的摩尔体积（标准状况时，约为 \qty{22.4}{L}）\\ 如氦：\qty{22.4}{L/mol}，氢气：\qty{22.4}{L/mol}，氧气：\qty{22.4}{L/mol}，二氧化碳：\qty{22.3}{g/mol}。}}}
+  child {node [method=green,right]{\parbox{10cm}{离子或离子化合物的摩尔质量\\ 如 \ce{H+}：\qty{1.0}{g/mol}，\ce{OH-}：\qty{17.0}{g/mol}，\ce{Cl-}：\qty{35.5}{g/mol}，\ce{SO4^2-}：\qty{96.0}{g/mol}，\ce{NaCl}：\qty{58.5}{g/mol}。}}}
+  child {node [method=green,right]{\parbox{10cm}{分子的摩尔质量\\ 如氢分子：\qty{2.0}{g/mol}，氧分子：\qty{32.0}{g/mol}，水分子：\qty{18.0}{g/mol}，二氧化碳分子：\qty{44.0}{g/mol}。}}}
+  child {node [method=green,right]{\parbox{10cm}{原子的摩尔质量\\ 如碳原子：\qty{12.0}{g/mol}，氢原子：\qty{1.0}{g/mol}，氧原子：\qty{16.0}{g/mol}，硫原子：\qty{32.1}{g/mol}。}}};
+\end{tikzpicture}
+\end{document}

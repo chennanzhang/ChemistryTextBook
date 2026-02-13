@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\pagestyle{empty}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{siunitx,chemmacros,chemfig}
+\setchemfig{bond offset = 0pt}
+\chemsetup[orbital]{
+  overlay,
+  opacity=0.5,
+  sp/scale=2.5,
+  s/color=blue!50,
+  s/scale=1.8
+}
+\begin{document}
+\small
+\begin{tikzpicture}
+  \useasboundingbox(-2.0,-2)rectangle(2.0,2);
+  % \draw[very thin](0,0)--(0,1.5)(0,0)--(-19.5:1.5);
+  \node {
+  \chemfig{
+    \orbital{s}-[:30,1.4,,,draw=none]{\orbital{sp}}
+    {\orbital[angle=-19.5]{sp}}
+    {\orbital[angle=210]{sp}}
+    {\orbital[angle=240]{sp}}
+    (-[:240,1.4,,,draw=none]\orbital{s})(-[:90,1.4,,,draw=none]\orbital{s})-[:-19.5,1.4,,,draw=none]\orbital{s}
+    }
+  };
+% \draw[very thin](0,0.5)arc(90:-19.5:0.5)node[midway,above right]{\ang{109;28;}};
+\end{tikzpicture}
+\end{document}

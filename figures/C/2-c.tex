@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{tikz,bm}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\large
+\begin{tikzpicture}
+  \node (c){C};
+  \foreach \x in {1,2,3,4}
+  {
+    \node(h\x) at (90*\x:1.2em) {H};
+    \draw[draw=none] (c)--(h\x)node[midway,sloped,above,inner sep=0pt]{\scalebox{0.35}{$\bm\times$}}node[midway,sloped,below,inner sep=0pt]{\footnotesize$\bm\cdot$};
+  }
+\end{tikzpicture}
+\end{document}

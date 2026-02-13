@@ -1,0 +1,108 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\retortstand}[4][]{
+  \begin{scope}[#1]
+    \draw[fill=darkgray](0,0)--++(#3,0)--++(0.05,-0.05)--++(0,-0.15)--++(-0.4,0)--++(0,0.05)--++(-#2-#3+0.7,0)--++(0,-0.05)--++(-0.4,0)--++(0,0.15)--++(0.05,0.05)--cycle;
+    \draw(-#2-0.05,-0.05)--(#3+0.05,-0.05);
+    \fill[left color=lightgray,right color=lightgray,middle color=white](-0.05,0)rectangle(0.05,#4);
+    \fill[left color=gray,right color=gray,middle color=white](-0.07,0)rectangle(0.07,0.07);
+  \end{scope}
+}
+\newcommand{\rflask}[5][]{
+  \begin{scope}[#1]
+    \fill[#4,fill opacity=0.3](#3:0.5)arc(#3:-#3-180:0.5)--cycle;
+    \fill[#5,fill opacity=0.3](#3:0.5)arc(#3:60:0.5)arc(240:180:0.2)--++(0,0.65)--++(-0.3,0)--++(0,-0.65)arc(0:-60:0.2)arc(120:180-#3:0.5);
+    \draw[rounded corners=2pt]([shift=(-15:0.7)]0.15,0.86)--(0.15,0.86)[sharp corners]--(0.15,{0.35*sqrt(3)})arc(180:240:0.2)(60:0.5)arc(60:-240:0.5)arc(-60:0:0.2)--++(0,0.5)coordinate(#2-bl)--++(0,0.1)arc(0:90:0.05)--++(0.4,0)arc(90:180:0.05)[rounded corners=2pt]--++(0,-0.3)--++(-15:0.71);
+    \fill[left color=gray,right color=gray,middle color=white](#2-bl)rectangle++(0.3,0.25);
+    \draw[semithick](-0.2,1.25)--(0.2,1.25);
+  \end{scope}
+}
+\newcommand{\JointClipC}[3][]{
+  \begin{scope}[#1]
+    \fill[top color=gray,bottom color=gray,middle color=white](-0.2,-0.03)rectangle(#2,0.03);
+    \fill[lightgray](#2,-0.07)rectangle++(#3,0.14);
+    \fill[left color=darkgray,right color=darkgray,middle color=white](-0.1,-0.1)rectangle(0.1,0.1);
+    \draw[line cap=round,very thick](-135:0.07)--(45:0.07);
+    \fill[ball color=black](0,0)circle(1.4pt);
+  \end{scope}
+}
+\newcommand{\JointClipP}[3][]{
+  \begin{scope}[#1]
+    \fill[top color=gray,bottom color=gray,middle color=white](-0.2,-0.03)rectangle(#2,0.03);
+    \fill[lightgray](#2,-0.02)rectangle++(#3,0.04);
+    \fill[left color=darkgray,right color=darkgray,middle color=white](-0.1,-0.1)rectangle(0.1,0.1);
+    \draw[line cap=round,very thick](-135:0.07)--(45:0.07);
+    \fill[ball color=black](0,0)circle(1.4pt);
+  \end{scope}
+}
+\newcommand{\AlcoholBurner}[1][]{
+  \begin{scope}[#1]
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+  \end{scope}
+}
+\newcommand{\FlameThick}[2][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](-0.3,{0.3+0.3*sin(#2)})to[in=100,out=-70](-0.08,0)--(0.08,0)to[in=-110,out=80](0.3,{0.3+0.3*sin(#2)});
+    \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+\newcommand{\thermometer}[3][]{
+  \begin{scope}[#1]
+    \draw[very thin](-0.02,#3)arc(180:0:0.02)--(60:0.04)arc(60:-240:0.04)--cycle;
+    \draw[semithick,red](0,0)--++(0,#2);
+    \fill[red](0,0)circle(0.03);
+  \end{scope}
+}
+\newcommand{\ConicalFlask}[3][]{
+  \begin{scope}[#1]
+    \fill[#3,rounded corners=5pt](0.65-#2/3,#2)--(0.65,0)--(-0.65,0)--(-0.65+#2/3,#2);
+    \foreach \x/\y in {0/1.0,0.05/0.8}
+    \draw[very thin,fill=cyan!20!white](\x,\y)to[in=180,out=-90]+(0,-0.1)to[in=-90,out=0]cycle;
+    \draw[fill=cyan!5!white,fill opacity=0.2](-0.15,1.5)--(-0.15,1.8)arc(0:90:0.05)--(0.20,1.85)arc(90:180:0.05)[rounded corners=5pt]--(0.15,1.5)--(0.65,0)--(-0.65,0)--(-0.15,1.5)--cycle;
+  \end{scope}
+}
+\newcommand{\CondenserTube}[3][]{
+  \begin{scope}[#1,rotate=#2]
+    \draw[double,double distance=1pt](-#3/2+0.2,0.2)--++(0,0.05)arc(180:-#2:0.05);
+    \draw[double,double distance=1pt](#3/2-0.2,-0.2)--++(0,-0.05)arc(-180:-180-#2:0.05);
+    \draw[double=brown,double distance=1.4pt](-#3/2+0.2,0.25)arc(180:-#2:0.05)--++(270-#2:0.6);
+    \draw[double=brown,double distance=1.4pt](#3/2-0.2,-0.25)arc(-180:-180-#2:0.05)--++(270-#2:0.3);
+    \draw[fill=cyan!20!white,fill opacity=0.4](-#3/2,0.2)--(#3/2,0.2)arc(90:-90:0.2)--(-#3/2,-0.2)arc(270:90:0.2)--cycle;
+    \draw[fill=white,white](-#3/2,0)to[bend right=5]++(150:0.2)arc(150:210:0.2)to[bend right=5]cycle;
+    \draw[fill=cyan!10!white,fill opacity=0.2](-#3/2,0)to[bend right=5]++(150:0.2)--(-#3/2-0.65,0.1)arc(-90:-180:0.05)--++(0,-0.3)arc(180:90:0.05)--([shift=(210:0.2)]-#3/2,0)to[bend right=5]cycle;
+    \draw[fill=darkgray](-0.1,0.2)rectangle(0.1,0.15)(-0.1,-0.2)rectangle(0.1,-0.15);
+    \draw[line width=1pt](-0.07,0.26)--(-0.03,0.22)--(0.03,0.22)--(0.07,0.26);
+    \draw[double=cyan!2!white,double distance=1.5pt,rounded corners=5pt](-#3/2-0.03,0)--(#3/2+0.55,0);
+    \fill[top color=darkgray,bottom color=darkgray,middle color=white](-#3/2-0.8,-0.1)rectangle++(0.2,0.2);
+    \fill[top color=darkgray,bottom color=darkgray,middle color=white](#3/2+0.3,-0.1)rectangle++(0.2,0.2);
+    \draw(-#3/2-0.7,0.15)--(-#3/2-0.7,-0.15);
+    \draw[fill=cyan!10!white,fill opacity=0.2](#3/2+0.4,0.1)arc(270:180:0.05)--++(0,-0.3)arc(180:90:0.05)to[out=0,in={90-#2}](#3/2+1.0,-0.5)--++(-#2:0.05)to[out={90-#2},in=0](#3/2+0.4,0.1);
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.2,inner sep=2pt]
+  \retortstand{0.5}{1.5}{4.0}
+  \retortstand[xshift=3.5cm]{1}{1}{3}
+  \draw[thick](-1,-0.2)--(6.5,-0.2);
+  \AlcoholBurner[xshift=0.8cm,yshift=0.5cm]
+  \FlameThick[xshift=0.8cm,yshift=12.2mm]{0}
+  \JointClipP[yshift=1.52cm]{0.3}{0.9}
+  \thermometer[xshift=0.8cm,yshift=3.0cm]{0.65}{1.0}
+  \rflask[xshift=0.8cm,yshift=2.08cm]{rflask}{0}{cyan!50!white}{cyan!10!white};
+  \CondenserTube[xshift=3.5cm,yshift=2.28cm]{-15}{2.78}
+  \draw[decorate,decoration={zigzag,amplitude=0.5pt,segment length=2pt}](0.5,1.56)--(1.1,1.56);
+  \ConicalFlask[xshift=5.7cm,yshift=0.2cm,scale=0.6]{0.4}{cyan!20!white}
+  \fill[brown!80!black](0.3,0)rectangle(1.3,0.5);
+  \fill[brown!80!black](5.2,-0.2)rectangle(6.2,0.2);
+\end{tikzpicture}
+\end{document}

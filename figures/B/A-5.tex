@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\beaker}[5][]{
+  \begin{scope}[#1]
+    \fill[#5,rounded corners=1mm](-#2/2,#4)--(-#2/2,0)--(#2/2,0)--(#2/2,#4);
+    \draw[fill=cyan!10!white,fill opacity=0.3](#2/2+0.07,#3)arc(90:180:0.07)[rounded corners=1mm]--(#2/2,0)--(-#2/2,0)[rounded corners=0.5mm]--(-#2/2,#3-0.15)[sharp corners]--++(-0.1,0.1)--(-#2/2,#3)--cycle;
+  \end{scope}
+}
+\newcommand{\thermometer}[3][]{
+  \begin{scope}[#1]
+    \draw[very thin](-0.015,#3)arc(180:0:0.015)--(60:0.03)arc(60:-240:0.03)--cycle;
+    \draw[red](0,0)--++(0,#2);
+    \fill[red](0,0)circle(0.02);
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \foreach \x in {-1,-0.5,0,0.5}
+  {
+    \foreach \y in {-0.4,0.1,0.6,1.1}
+    {
+      \fill[pattern={Lines[distance=1pt,angle=45,line width=0.2pt]}](\x,\y)rectangle++(0.25,0.25)(\x+0.25,\y+0.2)rectangle++(0.25,0.25);
+      \fill[pattern={Lines[distance=1pt,angle=135,line width=0.2pt]}](\x+0.25,\y-0.05)rectangle++(0.25,0.25)(\x,\y+0.25)rectangle++(0.25,0.25);
+    }
+  }
+  \draw(-1.08,1.78)arc(90:0:0.08)[rounded corners=3pt]|-(1,-0.5)[sharp corners]--(1,1.7)arc(180:90:0.08)--cycle;
+  \thermometer[yshift=0.3cm]{1.0}{3.0}
+  \beaker{1}{1.5}{0.7}{cyan!50!white,opacity=0.5}
+  \draw[very thin](0,2.3)--++(30:0.5)node[right]{温度计};
+  \draw[thick](-1.5,1.8)--(1.5,1.8);
+\end{tikzpicture}
+\end{document}

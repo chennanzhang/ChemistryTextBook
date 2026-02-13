@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \fill[ball color=white](-88:0.8)circle(0.2);
+  \draw[double,double distance=1pt](0,0)--++(-88:0.7);
+  \draw[double,double distance=1pt](0,0)--++(90:1.4);
+  \fill[ball color=white](90:1.4)circle(0.2);
+  \fill[ball color=gray](0,0)circle(0.5);
+  \draw[double,double distance=1pt](-20:0.4)--++(-20:0.8);
+  \draw[double,double distance=1pt](-150:0.3)--++(-150:0.8);
+  \fill[ball color=white](-20:1.2)circle(0.2);
+  \fill[ball color=white](-150:1.1)circle(0.2);
+\end{tikzpicture}
+\end{document}

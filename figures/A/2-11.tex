@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,mhchem}
+\setCJKmainfont{Noto Serif CJK SC}
+\usetikzlibrary{shapes.arrows}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=0.9]
+  \foreach \x in {-4,-3,-2,-1,0,+1,+2,+3,+4,+5,+6,+7}
+  {
+    \node at (\x,0){$\x$};
+  }
+  \node[single arrow,draw,minimum height=11.5cm,left color=red!10,right color=red!50] at (1.4,0.8) {氧化，失去 \ce{e}，化合价升高};
+  \node[single arrow,draw,minimum height=11.5cm,shape border rotate=180,left color=blue!50,right color=blue!10] at (1.7,-0.8) {还原，获得 \ce{e}，化合价升高};
+\end{tikzpicture}
+\end{document}

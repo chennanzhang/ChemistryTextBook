@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\EmptyTube}[3][]{
+  \begin{scope}[#1,rotate=#2]
+    \draw[fill=cyan!10!white,fill opacity=0.4](-#3,0.15)--(0,0.15)arc(-90:0:0.05)--(0.05,-0.2)arc(0:90:0.05)--(-#3,-0.15)arc(270:90:0.15)--cycle;
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \EmptyTube{-90}{2.0}
+  \draw[fill=pink!10!orange!10,very thin]
+  ( 1.160, 1.467)..controls( 1.061, 1.255)and( 0.628, 1.344)..
+( 0.365, 1.266)..controls( 0.046, 1.148)and(-0.259, 1.105)..
+(-0.227, 0.977)..controls(-0.343, 0.960)and(-0.393, 0.747)..
+(-0.205, 0.729)..controls(-0.402, 0.711)and(-0.431, 0.526)..
+(-0.219, 0.505)..controls(-0.450, 0.477)and(-0.558, 0.116)..
+( 0.340, 0.331)..controls( 0.236, 0.237)and( 0.155, 0.188)..
+( 0.165, 0.122)..controls( 0.040, 0.149)and(-0.257, 0.129)..
+(-0.260, 0.003)..controls(-0.242,-0.143)and(-0.167,-0.031)..
+(-0.049,-0.056)..controls( 0.226,-0.137)and( 0.200,-0.030)..
+( 0.384, 0.020)..controls( 0.966, 0.275)and( 0.814, 0.783)..( 1.371, 0.835);
+\draw[very thin]( 0.102, 0.921)..controls( 0.134, 0.940)and( 0.170, 0.957)..( 0.196, 0.937)
+(-0.227, 0.977)..controls(-0.123, 0.968)and(-0.027, 1.007)..( 0.078, 0.997)
+(-0.205, 0.729)..controls(-0.104, 0.769)and( 0.029, 0.767)..( 0.080, 0.802)
+(-0.219, 0.505)..controls(-0.082, 0.503)and(-0.018, 0.510)..( 0.099, 0.526)
+(-0.089,-0.052)..controls(-0.084, 0.045)and(-0.223, 0.026)..(-0.211,-0.074);
+\fill[cyan!20!white,fill opacity=0.4,rounded corners=7pt](-2,0.5)|-(2,-0.5)--(2,0.5);
+\draw[rounded corners=7pt](-2,1)|-(2,-0.5)--(2,1);
+  \draw[very thin](1.8,0.2)--++(45:0.6)node[right]{水};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=2.0,inner sep=2pt]
+  \draw[ball color=lightgray](0,{0.8/sqrt(2)})arc(45:325:0.8);
+  \draw[ball color=lightgray](0,{0.8/sqrt(2)})arc(135:-135:0.8);
+  \draw[very thin]({-0.8/sqrt(2)},0)--({-0.8/sqrt(2)},-1.2)({0.8/sqrt(2)},0)--({0.8/sqrt(2)},-1.2);
+  \draw[<->,very thin]({-0.8/sqrt(2)},-1.1)--({0.8/sqrt(2)},-1.1)node[midway,above]{\qty{0.74e-10}{m}};
+\end{tikzpicture}
+\end{document}

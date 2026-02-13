@@ -1,0 +1,58 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \foreach \x/\y in {
+    1.338/0.185,
+    1.852/0.896,
+    2.367/1.922,
+    1.411/1.945,
+    0.836/0.838
+  }
+  { 
+    \fill[ball color=white](\x,\y)circle(0.16);
+  }
+  \draw[double,double distance=0.8pt](0.691,1.196)--(0.347,1.454);
+  \draw[double,double distance=0.8pt](2.232,1.601)--(2.345,1.878);
+  \draw[double,double distance=0.8pt](1.686,1.156)--(1.842,0.890);
+  \draw[double,double distance=0.8pt](1.454,0.500)--(1.357,0.242);
+  \draw[double,double distance=0.8pt](0.691,1.196)--(0.815,0.912);
+  \fill[ball color=gray](0.691,1.196)circle(0.21);
+  \draw[double,double distance=0.8pt](0.802,1.268)--(1.168,1.586)--(1.410,1.946);
+  \draw[double,double distance=0.8pt](0.636,1.039)--(0.487,0.820);
+  \fill[ball color=gray](1.168,1.586)circle(0.21);
+  \draw[double,double distance=0.8pt](1.130,1.739)--(1.005,2.051);
+  \draw[double,double distance=0.8pt](1.314,1.471)--(1.686,1.156);
+  \fill[ball color=gray](1.686,1.156)circle(0.21);
+  \draw[double,double distance=0.8pt](1.821,1.268)--(2.232,1.601);
+  \draw[double,double distance=0.8pt](1.642,1.012)--(1.454,0.500);
+  \foreach \x/\y in {
+    2.232/1.601,
+    1.454/0.500
+  }
+  { 
+    \fill[ball color=gray](\x,\y)circle(0.21);
+  }
+  \draw[double,double distance=0.8pt](2.167,1.728)--(2.116,2.014);
+  \draw[double,double distance=0.8pt](2.322,1.469)--(2.448,1.265);
+  \draw[double,double distance=0.8pt](1.411,0.519)--(1.187,0.627);
+  \draw[double,double distance=0.8pt](1.573,0.475)--(1.805,0.344);
+  \foreach \x/\y in {
+    2.116/2.014,
+    2.448/1.265,
+    1.187/0.627,
+    0.487/0.820,
+    0.347/1.454,
+    1.005/2.051,
+    1.805/0.344
+  }
+  { 
+    \fill[ball color=white](\x,\y)circle(0.16);
+  }
+\end{tikzpicture}
+\end{document}

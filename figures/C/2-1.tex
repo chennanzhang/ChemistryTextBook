@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=2]
+  \tkzDefPoints{0/0/O,0/1.0/A,-0.8/-0.6/B,0.8/-0.6/C,0.4/-0.1/D}
+  \tkzDrawSegments[semithick](O,A O,B O,C O,D)
+  \tkzDrawSegments[densely dashed](B,A C,B A,C A,D B,D C,D)
+  \fill[ball color=gray](O)circle(1pt);
+  \tkzLabelPoint[above](A){H};
+  \tkzLabelPoint[above right](D){H};
+  \tkzLabelPoint[above left](O){C};
+  \tkzLabelPoint(B){H};
+  \tkzLabelPoint(C){H};
+\end{tikzpicture}
+\end{document}

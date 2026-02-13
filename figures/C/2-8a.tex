@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\pagestyle{empty}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{siunitx,chemmacros,chemfig}
+\setchemfig{bond offset = 0pt}
+\chemsetup[orbital]{
+  overlay,
+  opacity=0.5,
+  sp/scale=2.5,
+  s/color=blue!50,
+  s/scale=1.8
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth]
+  \useasboundingbox(-1.5,-1.5)rectangle(1.5,1.5);
+  \draw[very thin,->](-1.5,0)--(1.5,0);
+  \draw[very thin,->](0,-1.5)--(0,1.5);
+  \draw[very thin,->](0,0)--(120:1.5);
+  \draw[very thin,->](0,0)--(240:1.5);
+  \node {\orbital[angle=240]{sp}};
+  \node {\orbital[angle=120]{sp}};
+  \node {\orbital[angle=0]{sp}};
+\end{tikzpicture}
+\end{document}

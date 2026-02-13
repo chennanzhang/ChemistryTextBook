@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,mhchem}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=0.8]
+  \fill[left color=red,right color=orange!50!red](0,2)rectangle(3.2,3)node[midway,text=black]{\bfseries 红色};
+  \fill[left color=orange!50!red,right color=orange!50!yellow,middle color=orange](3.2,2)rectangle(4.5,3)node[midway,text=black]{\bfseries 橙色};
+  \fill[left color=orange!50!yellow,right color=yellow](4.5,2)rectangle(14,3)node[midway,text=black]{\bfseries 黄色};
+  \fill[left color=pink,right color=pink!50!red](8,1)rectangle(10,2)node[midway,text=black]{\bfseries 浅红色};
+  \fill[left color=pink!50!red,right color=red](10,1)rectangle(14,2)node[midway,text=black]{\bfseries 红色};
+  \node at (4,1.5){\bfseries 无色};
+  \fill[left color=red,right color=violet!50!red](0,0)rectangle(5,1)node[midway,text=white]{\bfseries 红色};
+  \fill[left color=violet!50!red,right color=violet!50!blue,middle color=violet](5,0)rectangle(8,1)node[midway,text=white]{\bfseries 紫色};
+  \fill[left color=violet!50!blue,right color=blue](8,0)rectangle(14,1)node[midway,text=white]{\bfseries 蓝色};
+  \foreach \t[count=\y from 0] in {石蕊,酚酞,甲基橙,pH} 
+  { 
+    \draw(-2,\y)--(14,\y);
+    \node at (-1,\y+0.5){\t}; 
+  }
+  \foreach \x in {-2,0} { \draw(\x,0)--(\x,3.8); }
+  \foreach \x in {1,...,14}{\draw(\x,3)--(\x,3.2)node[above]{$\x$};}
+  \draw(14,0)--(14,3);
+\end{tikzpicture}
+\end{document}

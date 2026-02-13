@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{chemfig,siunitx}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \node {\chemfig[atom sep=1.5em]{CH_3-[,2.5]{(CH_2)_{\mathit n}}-[,2]*6(=-=(-[,1.5]SO_3Na)-=-)}};
+  \draw(-3.5,-0.8)arc(270:90:0.8)--(1.7,0.8)arc(135:-135:{0.8*sqrt(2)})--cycle;
+\end{tikzpicture}
+\end{document}

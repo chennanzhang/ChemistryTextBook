@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\newcommand{\cnum}[1]{%
+\ifnum #1<21
+  \edef\a{\the\numexpr #1+9311}
+\else
+  \ifnum #1<36
+    \edef\a{\the\numexpr #1+12860}
+  \else
+    \ifnum #1<51
+     \edef\a{\the\numexpr #1+12941}
+  \fi
+\fi
+\fi
+{\CJKfontspec{Noto Serif CJK SC}\fontspec{Noto Serif CJK SC}\symbol\a}
+}
+\usetikzlibrary{patterns,calc,positioning}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \node (sio2) {\ce{SiO2}};
+  \node (si) [above=1cm of sio2] {\ce{Si}};
+  \node (h2sio3) [below=1cm of sio2] {\ce{H2SiO3}};
+  \node (casio3) [left=1cm of sio2] {\ce{CaSiO3}};
+  \node (na2sio3) [right=1cm of sio2] {\ce{Na2SiO3}};
+  \draw[->] (h2sio3)--(sio2)node[midway,right]{\cnum{4}};
+  \draw[->] (na2sio3)--(h2sio3)node[midway,below]{\cnum{7}};
+  \draw[->] (sio2)--(na2sio3)node[midway,above]{\cnum{6}};
+  \draw[->] (sio2)--(casio3)node[midway,above]{\cnum{3}};
+  \draw[{-Diamond[left]}] ([xshift=-1pt]sio2.north)--([xshift=-1pt]si.south)node[midway,left]{\cnum{2}};
+  \draw[{-Diamond[left]}] ([xshift=1pt]si.south)--([xshift=1pt]sio2.north)node[midway,right]{\cnum{1}};
+\end{tikzpicture}
+\end{document}

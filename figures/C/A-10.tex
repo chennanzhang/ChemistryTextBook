@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+\small
+\begin{tikzpicture}
+  \draw[semithick](0,0)circle(2);
+  \draw[semithick](2:2)--(0,{2*sin(2)});
+  \draw[semithick](-2:2)--(0,{2*sin(-2)});
+\end{tikzpicture}
+\end{document}

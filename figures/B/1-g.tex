@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0,>=stealth]
+  \foreach \x in {0,1,2}
+  {
+    \draw(\x,0)rectangle++(0.8,0.8);
+    \draw[->](\x+0.2,0.2)--++(0,0.4);
+    \draw[->](\x+0.6,0.6)--++(0,-0.4);
+  }
+  \draw(2.8,0)rectangle++(0.8,0.8);
+  \draw(2.8,1.5)rectangle++(0.8,0.8);
+  \draw(3.6,0)rectangle++(0.8,0.8);
+  \draw(3.6,-1.5)rectangle++(0.8,0.8);
+  \draw[->](4,0.2)--++(0,0.4);
+  \draw[->](3.2,0.2)--++(0,0.4);
+  \draw[->](3.2,2.1)--++(0,-0.4);
+  \draw[->](4,-0.9)--++(0,-0.4);
+  \node at (-0.6,-1.1) {\ce{H}};
+  \node at (-0.6,0.4) {\ce{O}};
+  \node at (-0.6,1.9) {\ce{H}};
+  \foreach \x/\y in {0.4/1s,1.4/2s}
+  {
+    \node at (\x,2.8) {$\y$};
+  }
+  \draw[densely dashed] (3.6,-1.7)rectangle(4.4,1.0);
+  \draw[densely dashed] (2.8,-0.2)rectangle(3.6,2.5);
+  \node at (4.5,0.4)[right]{$2p$};
+  \node at (4.5,-1.1)[right]{$1s$};
+  \node at (3.7,1.9)[right]{$1s$};
+\end{tikzpicture}
+\end{document}

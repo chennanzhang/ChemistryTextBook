@@ -26,18 +26,25 @@
 钠受热以后能够在空气里着火燃烧，在纯净的氧气里燃烧得更为剧烈，燃烧时发出黄色的火焰。
 在钠跟氧气化合的过程中，可以生成氧化钠，氧化钠不稳定，继续氧化，生成过氧化钠。
 过氧化钠比较稳定，所以钠在空气里燃烧，生成的是过氧化钠。
-\[ \ce{2Na + O2 \xlongequal{\quad} Na2O2} \]
+\[\schemestart 
+\ce{2Na} \+ \ce{O2} $\xlongequal{\quad}$ 
+\chemname{\ce{Na2O2}}{\footnotesize 过氧化钠} 
+\schemestop\chemnameinit{}\]
 
 \subsubsection{钠跟硫等非金属的反应}
 钠除了能跟氯气直接化合外，还能跟很多其它非金属直接化合，如跟硫化合时甚至发生爆炸，生成硫化钠。
-\[ \ce{2Na + S \xlongequal{\quad} Na2S} \]
+\[\schemestart  
+\ce{2Na} \+ \ce{S} $\xlongequal{\quad}$ 
+\chemname{\ce{Na2S}}{\footnotesize 硫化钠}
+\schemestop\chemnameinit{}\]
 
 \subsubsection{钠跟水的反应}
 钠跟水能起剧烈的反应。
-\begin{Experiment}*[righthand ratio=0.5]
+\begin{Experiment}*[righthand ratio=0.4]
 向一个盛有水的烧杯里，滴入几滴酚酞溶液。然后把一小块钠（约等于 1/2 豌豆那么大小）投入烧杯里。注意观察钠跟水起反应的情形和溶液颜色的变化。再用铝箔包好一小块钠，并在铝箔上刺些小孔，用镊子夹住，放在试管口下面，用排水法收集气体（\cref{fig:4-1}）。小心地取出试管，移近火焰，检验试管里是不是收集了氢气。
   \tcblower
   \begin{figurehere}
+    \includegraphics{4-1.pdf}
     \caption{钠跟水起反应}\label{fig:4-1}
   \end{figurehere}
 \end{Experiment}
@@ -126,13 +133,14 @@
 碳酸氢钠遇到盐酸放出二氧化碳的作用，要比碳酸钠剧烈得多。
 
 碳酸钠很稳定，受热很难分解，碳酸氢钠却不很稳定，受热容易分解。
-\begin{Experiment}*[righthand ratio=0.5]
+\begin{Experiment}*[righthand ratio=0.7]
 用\cref{fig:4-2} 的装置，把碳酸钠放入试管里，约占试管容积的 1/6，并往烧杯里倒入石灰水。
 加热，观察澄清的石灰水是否起变化。
 把试管拿掉，换上一个放入同样容积碳酸氢钠的试管。
 再加热，观察澄清的石灰水所起的变化。
 \tcblower
 \begin{figurehere}
+  \includegraphics{4-2.pdf}
   \caption{鉴别碳酸钠和碳酸氢钠}\label{fig:4-2}
 \end{figurehere}
 \end{Experiment}
@@ -172,10 +180,22 @@
 从\cref{tab:4-1} 可以看出，锂、钠、钾、铷、铯的原子的最外电子层的电子数是相同的，都是一个电子。
 这个电子对于原子的大小是有影响的，一旦这个电子失去而变成离子，离子就显著地比原子小了。
 这可以从\cref{fig:4-3} 清楚地看到。
-\begin{table}
+\begin{sidewaystable}
   \caption{碱金属的原子结构和物理性质}\label{tab:4-1}
-\end{table}
+  \begin{tblr}{colspec={ccccX[l]S[table-format=2.3,table-number-alignment=right]S[table-format=4.2,table-number-alignment=right]S[table-format=5.2,table-number-alignment=right]},hline{2}=0.8pt,row{1}={m,c,guard},stretch=3.0}
+    {元素\\名称} & {元素\\符号} & {核电\\荷数} & 电子层结构 & 颜色和状态 & {密度\\（\unit{g/cm^3}）}& {熔点\\（\unit{\celsius}）}& {沸点\\（\unit{\celsius}）}\\
+    锂 & \ce{Li} & 3  & \Dzc{2,1} & 银白色金属，柔软。 & 0.534 & 180.5 & 1347  \\
+    钠 & \ce{Na} & 11 & \Dzc{2,8,1} & 银白色金属，柔软。 & 0.97  & 97.81 & 882.9 \\
+    钾 & \ce{K}  & 19 & \Dzc{2,8,8,1} & 银白色金属，柔软。 & 0.86  & 63.65 & 774   \\
+    铷 & \ce{Rb} & 37 & \Dzc{2,8,18,8,1} & 银白色金属，柔软。 & 1.532 & 38.89 & 688   \\
+    铯 & \ce{Cs} & 55 & \Dzc{2,8,18,18,8,1} & 银白色金属，略带金色光泽，柔软。& 1.879 & 28.40 & 678.4 \\
+  \end{tblr}\par\smallskip
+  \begin{minipage}{\linewidth}
+    \footnotesize 注：密度是指常温时的数据。
+  \end{minipage}
+\end{sidewaystable}
 \begin{figure}
+  \includegraphics{4-3.pdf}
   \caption{碱金属的原子和离子的大小示意图（数据单位是 \qty{e-10}{m}）}\label{fig:4-3}
 \end{figure}
 
@@ -186,12 +206,13 @@
 我们在炒菜的时候，偶有食盐或食盐水溅在煤气火焰或煤火上，火焰就呈现黄色。
 火焰呈现颜色的现象应用在科学实验上，可以检验一些金属或金属化合物。
 多种金属或它们的化合物在灼烧时使火焰呈特殊的颜色，这在化学上叫做\Concept{焰色反应}。
-\begin{Experiment}*
+\begin{Experiment}*[righthand ratio=0.4]
 把装在玻璃棒上的铂丝（也可用光洁无锈的铁丝或镍、铬、钨丝）放在酒精灯火焰（最好用煤气灯，火焰的本身颜色较微弱）里灼烧，等到跟原来的火焰颜色相同的时候，用铂丝蘸碳酸钠溶液，放在火焰上，就可以看到火焰呈黄色（\cref{fig:4-4}）。
 每次试完后都要用稀盐酸洗净铂丝，在火焰上灼烧到没有什么颜色，再分别蘸碳酸钾溶液、碳酸锂溶液作试验，观察火焰的颜色。
 在观察钾的火焰颜色的时候，要透过蓝色的钴玻璃去观察，这样就可以滤去黄色的光，避免碳酸钾里钠的杂质所造成的干扰。
   \tcblower
   \begin{figurehere}
+    \includegraphics{4-4.pdf}
     \caption{焰色反应试验的操作}\label{fig:4-4}
   \end{figurehere}
 \end{Experiment}
@@ -222,7 +243,7 @@
 碱金属跟卤素的反应，有的是很剧烈的，这我们已经知道了。
 
 其它碱金属都象钠一样能跟氧气起反应。锂跟氧气起反应，生成氧化锂。
-\[ \ce{ 4Li+ O2 \xlongequal{\quad} 2 Li2O} \]
+\[ \ce{ 4Li + O2 \xlongequal{\quad} 2 Li2O} \]
 
 钾、铷等跟氧气起反应，生成比过氧化物更复杂的氧化物。
 
@@ -235,7 +256,7 @@
 反应完成后滴入几滴酚酞溶液，观察溶液颜色的变化。
 \end{Experiment}
 
-\[ \ce{2K + 2H2O \xlongequal{\quad} 2KOH +H2 ^} \]
+\[ \ce{2K + 2H2O \xlongequal{\quad} 2KOH + H2 ^} \]
 
 这个反应就是钾原子失去一个电子，水里的氢离子获得一个电子成为氢原子，氢原子构成氢分子。
 
@@ -280,7 +301,9 @@
     \item 把 \qty{4}{g} 氢氧化钠溶解在水里，制成溶液。这溶液能跟多少毫升的密度为 \qty{1.19}{g/cm^3} 的盐酸起反应？
   \end{question}
 \end{Practice}
+
 \section*{内容提要}
+\addcontentsline{toc}{section}{内容提要}\setcounter{subsection}{0}
 碱金属是一族金属元素，它们的原子结构的共同之点是次外层有 8 个电子（锂是 2 个）和最外电子层都只有一个电子，在化学反应中容易失去电子，因此，它们的化学性质基本相似；差别之处是核电荷数不同，电子层数不同，原子半径也不同，因而碱金属元素的性质既相似又有差别。
 
 碱金属的化学性质主要是强的金属性，随着原子半径的增大而金属性增强。
@@ -299,17 +322,17 @@
 \begin{Review}
   \begin{question}
     \item 回答下列问题：
-    \begin{tasks}
-      \task 使用金属钠
-      \task 使用金属钠
-      \task 使用金属钠
-      \task 使用金属钠
+    \begin{tasks}[label=(\arabic*)]
+      \task 使用金属钠时为什么不能直接用手去拿，而要用镊子去夹？
+      \task 观察钾的焰色时，为什么要透过蓝色的钴玻璃片？
+      \task 氢氧化钠固体或溶液为什么要保存在密闭容器里？
+      \task 钠和钾的外观很相似，怎样来鉴别它们？
     \end{tasks}
-    \item 
+    \item 钠和钾各 \qty{1}{mol} 跟水其反应，生成的氢氧化物的质量是否相等？生成的氢气的质量是否相等？
     \item 选择正确的答案填写在括号里。
     \begin{enumerate}[itemindent=1.7em]
       \item 下列哪些物质可用来制氧气：\hfill（\hspace{2em}）
-      \begin{tasks}(5)
+      \begin{tasks}[label=\Alph*.](5)
         \task \ce{Na2O2}
         \task \ce{CaCO3}
         \task \ce{KClO3}
@@ -317,14 +340,14 @@
         \task \ce{H2O}
       \end{tasks}
       \item 钠离子\hfill（\hspace{2em}）
-      \begin{tasks}(2)
+      \begin{tasks}[label=\Alph*.](2)
         \task 遇水放出氢气，
         \task 要保存在煤油里，
         \task 比钠原子多一个电子，
         \task 在无色火焰上灼烧显黄色。
       \end{tasks}
       \item 下列哪些物质放在水里后，溶液显碱性：\hfill（\hspace{2em}）
-      \begin{tasks}(4)
+      \begin{tasks}[label=\Alph*.](4)
         \task \ce{Na2O2}
         \task \ce{NaCl}
         \task \ce{CuO}

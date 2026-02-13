@@ -1,0 +1,53 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,mhchem}
+\usetikzlibrary{patterns,calc,patterns.meta}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \begin{scope}[scale=2.2]
+  \draw[very thin](-0.182,0.236)to[bend left](-0.096,0.241)
+(-0.030,0.259)to[bend left]( 0.034,0.272)
+( 0.044,0.305)to[bend left]( 0.141,0.266)
+( 0.174,0.266)to[bend left]( 0.267,0.240)
+( 0.220,0.236)to[bend left]( 0.248,0.220);
+  \draw[very thin]
+(-0.249, 0.185)to[bend right](-0.271, 0.137)
+(-0.241, 0.157)to[bend right](-0.256, 0.123)
+(-0.273, 0.001)to[bend right](-0.231,-0.069)
+(-0.221,-0.118)to[bend right](-0.205,-0.162)
+(-0.247,-0.135)to[bend right](-0.168,-0.211)
+(-0.057,-0.173)to[bend right]( 0.005,-0.186)
+(-0.095,-0.186)to[bend right]( 0.023,-0.210)
+( 0.059,-0.259)to[bend right]( 0.119,-0.251)
+( 0.029,-0.262)to[bend right]( 0.164,-0.252)
+( 0.079,-0.218)to[bend right]( 0.147,-0.177)
+( 0.232,-0.180)to[bend right]( 0.271,-0.126)
+( 0.225,-0.219)to[bend right]( 0.310,-0.117)
+( 0.241,-0.039)to[bend right]( 0.276, 0.017)
+( 0.257,-0.065)to[bend right]( 0.300, 0.021)
+( 0.341, 0.002)to[bend right]( 0.347, 0.053)
+(-0.183, 0.004)to[bend right](-0.152,-0.015)
+(-0.201,-0.021)to[bend right](-0.149,-0.066)
+(-0.101,-0.027)to[bend right](-0.053,-0.069)
+(-0.052,-0.044)to[bend right]( 0.019,-0.057)
+(-0.015,-0.109)to[bend right]( 0.063,-0.073)
+(-0.003,-0.026)to[bend right]( 0.075, 0.007)
+( 0.150,-0.055)to[bend right]( 0.190,-0.003)
+( 0.163,-0.132)to[bend right]( 0.199,-0.073)
+( 0.204, 0.010)to[bend right]( 0.228, 0.051);
+  \end{scope}
+  \foreach \x in {90,80,...,10}
+  {
+    \draw[line width={3*sin(\x)},gray!80!cyan!\x](-0.3,0)--++(160:2);
+    \draw[line width={3*sin(\x)},gray!80!cyan!\x](0.3,0)--++(20:2);
+  }
+  \draw[very thin](-0.3,0)--++(-0.5,0)node[left]{\ce{NH3}};
+  \draw[very thin](0.3,0)--++(0.5,0)node[right]{\ce{HCl}};
+  \node at (0,0.3){\ce{NH4Cl}};
+\end{tikzpicture}
+\end{document}

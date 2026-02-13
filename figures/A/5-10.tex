@@ -1,0 +1,78 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+\small
+\begin{tikzpicture}
+  \fill[red!20!white](1,0)--(3,0)--(3,6)--(2,6)--(2,7)--(1,7)--cycle;
+  \fill[blue!20!white](13,0)--(19,0)--(19,7)--(18,7)--(18,6)--(13,6)--cycle;
+  \fill[green!20!white](3,0)rectangle(13,4);
+  \fill[yellow!20!white](3,0)rectangle(4,2);
+  \fill[yellow!20!white](2,-2.5)rectangle(17,-0.5);
+  \draw[thick](0,0)--(19,0)--(19,8)--(18,8)--(18,7)--(13,7)--(13,5)--(3,5)--(3,7)--(2,7)--(2,8)--(0,8)--cycle;
+  \draw[thick](0,-0.5)rectangle(17,-2.5);
+  \draw(2,-0.5)--(2,-2.5)(0,-1.5)--(2,-1.5);
+  \draw[densely dashed](2,-1.5)--(17,-1.5);
+  \foreach \x in {3,4,...,16} {\draw[densely dashed](\x,-0.5)--++(0,-2);}
+  \foreach \y in {1,...,4} {\draw[densely dashed](3,\y)--++(10,0);}
+  \foreach \y in {1,...,6}
+  {
+    \draw(0,\y)--++(3,0)(13,\y)--++(6,0);
+  }
+  \foreach \x in {2,14,15,16,17,18}{\draw(\x,0)--++(0,7);}
+  \draw[semithick](1,0)--++(0,8)(0,7)--(2,7)(18,7)--(19,7);
+  \foreach \x in {4,...,8,11,12} {\draw[densely dashed](\x,0)--++(0,5);}
+  \foreach \x in {3,13} {\draw(\x,0)--++(0,5);}
+  \foreach \x in {9,10} {\draw[densely dashed](\x,0)--++(0,4);}
+  \draw(0,8)--(1,7);
+  \node at (1,-1){镧系元素};
+  \node at (1,-2){锕系元素};
+  \node at (0,7)[above right]{\scriptsize 周期};
+  \node at (1,8)[below left]{\scriptsize 族};
+  \foreach \x/\y/\t in {
+     1.5/7.5/IA,
+     2.5/6.5/IIA,
+     3.5/4.5/IIIB,
+     4.5/4.5/IVB,
+     5.5/4.5/VB,
+     6.5/4.5/VIB,
+     7.5/4.5/VIIB,
+     9.5/4.5/VIII,
+    11.5/4.5/IB,
+    12.5/4.5/IIB,
+    13.5/6.5/IIIA,
+    14.5/6.5/IVA,
+    15.5/6.5/VA,
+    16.5/6.5/VIA,
+    17.5/6.5/VIIA,
+    18.5/7.5/0%
+  }
+  {\node at (\x,\y){\t};}
+  \foreach \y[count=\i] in {6.5,5.5,4.5,3.5,2.5,1.5,0.5}
+  {
+    \node at (0.5,\y) {\i};
+  }
+  \node at (3.5,1.5)[inner sep=1pt,above]{镧系};
+  \node at (3.5,1.5)[inner sep=1pt,below]{元素};
+  \node at (3.5,0.5)[inner sep=1pt,above]{锕系};
+  \node at (3.5,0.5)[inner sep=1pt,below]{元素};
+  \node at (2,3)[fill=red!20!white]{\LARGE $s$};
+  \node at (10,-1.5)[fill=yellow!20!white]{\LARGE $f$};
+  \node at (8,2)[fill=green!20!white]{\LARGE $d$};
+  \node at (16,3)[fill=blue!20!white]{\LARGE $p$};
+  \foreach \x/\y/\t in {
+     1.5/8/ns^1,
+     2.5/7/ns^2,
+    13.5/7/np^1,
+    14.5/7/np^2,
+    15.5/7/np^3,
+    16.5/7/np^4,
+    17.5/7/np^5,
+    18.5/8/np^6%
+  }{\node at (\x,\y)[above]{$\t$};}
+  \draw[decorate,decoration={brace,amplitude=7pt}](3.1,6.7)--(12.9,6.7)node[midway,above=7pt]{$(n-1)d^mns^1$ 或 $(n-1)d^mns^2$};
+\end{tikzpicture}
+\end{document}

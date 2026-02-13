@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \draw[double distance=1pt](-4.95,2.96)--(-1.5,4.5)--(1.5,4.5)--(4.95,2.96);
+  \fill[draw,pattern=north east lines,even odd rule](-5,0)rectangle(5,3)(-4.8,0.2)rectangle(4.8,3);
+  \draw[pattern=crosshatch dots](-3.5,3)--(-3.2,2.55)to[bend left=12](-1,3)--(1,3)to[bend left=12](3.2,2.55)--(3.5,3);
+  \draw[pattern=north east lines](-1.5,4.8)rectangle++(0.3,0.4)(1.5,4.8)rectangle++(-0.3,0.4);
+  \foreach \x in {-1.5,1.5}
+    {
+      \draw[fill=gray](\x-0.6,2.3)rectangle(\x+0.6,3.2);
+      \draw(\x-0.2,2.3)--(\x-0.2,3.2)(\x+0.2,2.3)--(\x+0.2,3.2);
+      \draw[double distance=2pt](\x-0.4,3.2)--++(0,0.3)--++(0.8,0)--++(0,-0.3)(\x,3.5)--++(0,2.0);
+    }
+  \fill[cyan!20!white,fill opacity=0.5](-3.2,2.55)--(3.2,2.55)--(2.5,1.5)--(-2.5,1.5);
+  \fill[cyan!40!white,fill opacity=0.5](-2.9,2.1)--(2.9,2.1)--(2.5,1.5)--(-2.5,1.5);
+  \fill[draw,pattern=crosshatch] (-4.6,3)--(-4.5,0.5)--(4.5,0.5)--(4.5,3)--++(-1,0)--++(-1,-1.5)--++(-5,0)--++(-1,1.5)--cycle;
+  \draw[fill=lightgray!30](-5.2,0.5)rectangle(-1.3,0.6)(1.3,0.6)rectangle(5.2,0.5)node[below right]{阴极};
+  \draw[very thin](-3.5,3.6)--++(135:0.5)node[left]{烟罩};
+  \draw[very thin](-2.0,3.1)--++(135:1.7)node[left]{阳极};
+  \draw[very thin](4.9,2.95)--++(45:0.5)node[right]{钢壳};
+  \draw[very thin](4.3,2.0)--++(0:1.1)node[right]{碳块};
+  \draw[very thin](1.05,1.7)--++(-45:2.7)node[right]{铝};
+  \draw[very thin](2.6,2.4)--++(45:2.2)node(a)[above]{（氧化铝和冰晶石）};
+  \node at (a.north)[above]{电解质};
+\end{tikzpicture}
+\end{document}

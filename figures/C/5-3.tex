@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{chemfig,siunitx}
+\begin{document}
+\begin{tikzpicture}[scale=1]
+\node {
+  \chemfig[atom sep=1.5em]{
+    *6(=(-CH_2-*6(=-(-CH_2-)=(-OH)-(-CH_2-*6(-=(-CH_2-)-=(-CH_2-*6(=(-OH)-(-CH_2-)=-(-CH_2-*6(-=(-CH_2-)-(-OH)=(-CH_2-*6(=-(-CH_2-)=-=(-OH)-)
+    )-=)
+    )=-)
+    )-(-OH)=)
+    )=-))-=(-CH_2-)-(-OH)=(-CH_2-)-)
+  }
+};
+\end{tikzpicture}
+\end{document}

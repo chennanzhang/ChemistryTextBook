@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \begin{scope}
+    \node at (0,0){固体};
+    \foreach \x in {1,...,600}
+    {
+      \coordinate (a) at(1.5*rand,0.4+3*rnd);
+      \fill[ball color=violet]([shift=(360*rnd:-3pt)]a)circle(4pt);
+      \fill[ball color=violet]([shift=(360*rnd:3pt)]a)circle(4pt);
+    }
+  \end{scope}
+  \begin{scope}[xshift=4cm]
+    \node at (0,0){液体};
+    \foreach \x in {1,...,50}
+    {
+      \coordinate (a) at(1.5*rand,0.4+3*rnd);
+      \fill[ball color=violet]([shift=(360*rnd:-3pt)]a)circle(4pt);
+      \fill[ball color=violet]([shift=(360*rnd:3pt)]a)circle(4pt);
+    }
+  \end{scope}
+  \begin{scope}[xshift=8cm]
+    \foreach \x/\y/\a in {1.5/0.8/90,-1.0/0.4/60,-1.6/1.4/110}
+    {
+      \begin{scope}[xshift=\x cm,yshift=\y cm,rotate=\a]
+        \fill[ball color=violet](-3pt,0)circle(4pt);
+        \fill[ball color=violet](3pt,0)circle(4pt);
+      \end{scope}
+    }
+    \node at (0,0){气体};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

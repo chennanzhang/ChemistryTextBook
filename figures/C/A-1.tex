@@ -1,0 +1,66 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\retortstand}[4][]{
+  \begin{scope}[#1]
+    \draw[fill=darkgray](0,0)--++(#3,0)--++(0.05,-0.05)--++(0,-0.15)--++(-0.4,0)--++(0,0.05)--++(-#2-#3+0.7,0)--++(0,-0.05)--++(-0.4,0)--++(0,0.15)--++(0.05,0.05)--cycle;
+    \draw(-#2-0.05,-0.05)--(#3+0.05,-0.05);
+    \fill[left color=lightgray,right color=lightgray,middle color=white](-0.05,0)rectangle(0.05,#4);
+    \fill[left color=gray,right color=gray,middle color=white](-0.07,0)rectangle(0.07,0.07);
+  \end{scope}
+}
+\newcommand{\AlcoholBurner}[1][]{
+  \begin{scope}[#1]
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+  \end{scope}
+}
+\newcommand{\ClipedTube}[4][]{
+  \begin{scope}[#1,rotate=#2]
+    \draw[double,double distance=1.3pt,rounded corners=4pt](#3/3-0.2,0)--++(0.6,0)[sharp corners]--++(-40:#4)arc(-130:-#2:0.2)--++(90-#2:0.2);
+    \draw[double=brown,double distance=1.3pt]([shift=(-40:0.5)]#3/3+0.4,0)--++(-40:0.5);
+    \draw[double=brown,double distance=1.8pt]([shift=(-40:0.3)]#3/3+0.4,0)--++(-40:0.2)([shift=(-40:1.0)]#3/3+0.4,0)--++(-40:0.2);
+    \fill[top color=darkgray,bottom color=darkgray,middle color=white](#3/3-0.15,-0.15)rectangle++(0.3,0.3);
+    \fill[pattern={Dots[distance=0.6pt,radius=0.15pt,angle=40]},pattern color=darkgray](-#3/3*2-0.15,0)arc(180:270:0.15)--++(0.5,0)to[bend right=10](-#3/3*2-0.15,0);
+    \draw[fill=cyan!10!white,fill opacity=0.4](-#3/3*2,0.15)--(#3/3,0.15)arc(-90:0:0.05)--(#3/3+0.05,-0.2)arc(0:90:0.05)--(-#3/3*2,-0.15)arc(270:90:0.15)--cycle;
+    \draw[fill=darkgray](-0.1,0.15)rectangle(0.1,0.1)(-0.1,-0.15)rectangle(0.1,-0.1);
+    \draw[line width=1pt](-0.07,0.21)--(-0.03,0.17)--(0.03,0.17)--(0.07,0.21);
+  \end{scope}
+}
+\newcommand{\FlameThick}[2][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](-0.2,{0.3-0.2*sin(#2)})to[bend left=20](-0.25,{0.35-0.25*sin(#2)})to[in=100,out=-80](-0.08,0)--(0.08,0)to[in=-110,out=70](0.3,{0.3+0.3*sin(#2)});
+    \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+\newcommand{\FilledTube}[6][]{
+  \begin{scope}[#1,rotate=#2]
+    \fill[#4](-#3+#5,0.15)--(0,0.15)arc(-90:0:0.05)--(0.05,-0.2)arc(0:90:0.05)--(-#3+#5,-0.15)--cycle;
+    \fill[#6](-#3+#5,-0.15)--(-#3,-0.15)arc(270:90:0.15)--(-#3+#5,0.15)--cycle;
+    \draw[fill=cyan!10!white,fill opacity=0.2](-#3,0.15)--(0,0.15)arc(-90:0:0.05)--(0.05,-0.2)arc(0:90:0.05)--(-#3,-0.15)arc(270:90:0.15)--cycle;
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.3]
+  \retortstand{2}{0.5}{3.5}
+  \AlcoholBurner[xshift=-1.2cm,yshift=1cm]
+  \FlameThick[xshift=-1.2cm,yshift=1.72cm]{-8}
+  \fill[brown!80!black](-1.7,1)rectangle(-0.7,0);
+  \ClipedTube[yshift=2cm]{-8}{2.0}{2.0}
+  \foreach \y in {0.9,1.1,1.3,1.5,1.7}
+  {
+    \draw[very thin,fill=lightgray!20](2.72+0.1*rand,\y)circle(1pt);
+  }
+  \FilledTube[xshift=2.72cm,yshift=0.5cm]{-90}{2.0}{cyan!30!white,fill opacity=0.4}{0.5}{cyan!10!white,fill opacity=0.2}
+  \fill[cyan!30!white,fill opacity=0.3,rounded corners=5pt](1,0.75)|-(4,-0.2)--(4,0.75);
+  \draw[rounded corners=5pt](1,0.9)|-(4,-0.2)--(4,0.9);
+\end{tikzpicture}
+\end{document}

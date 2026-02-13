@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0,>=stealth]
+  \foreach \x in {0,1,2,2.8,3.6,4.6,5.6,6.4}
+  {
+    \draw[->](\x+0.2,-1.3)--++(0,0.4);
+    \draw[->](\x+0.6,-0.9)--++(0,-0.4);
+    \draw(\x,-1.5)rectangle++(0.8,0.8);
+  }
+  \foreach \x in {7.2}
+  {
+    \draw(\x,0)rectangle++(0.8,0.8);
+    \draw[->](\x+0.4,-0.9)--++(0,-0.4);
+    \draw[->](\x+0.4,0.2)--++(0,0.4);
+    \draw(\x,-1.5)rectangle++(0.8,0.8);
+  }
+  \node at (-0.6,-1.1) {\ce{Cl}};
+  \node at (-0.6,0.4) {\ce{H}};
+  \foreach \x/\y in {0.4/1s,1.4/2s,3.2/2p,5.0/3s,6.8/3p}
+  {
+    \node at (\x,-1.8) {$\y$};
+  }
+  \draw[densely dashed] (7.2,-1.7)rectangle(8,1.0);
+  \node at (8.1,0.4)[right] {$1s$};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1]
+  \fill[ball color=white](0.67,1.5)circle(0.47);
+  \fill[ball color=green!50!yellow](2,2)circle(0.75);
+  \fill[ball color=darkgray](1.456,0.478)..controls(0.407,0.571)and(0.136,1.107)..
+  (0.224,1.368)..controls(0.565,1.115)and(1.028,1.357)..
+  (1.134,1.549)..controls(2.298,1.831)and(2.155,0.447)..cycle;
+  \fill[ball color=gray](1.7,1.1)circle(0.6);
+  \fill[ball color=white](0.75,0.65)circle(0.47);
+  \fill[ball color=white](1.8,0.5)circle(0.47);
+\end{tikzpicture}
+\end{document}

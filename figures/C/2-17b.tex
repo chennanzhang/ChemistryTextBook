@@ -1,0 +1,68 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide,pgfplots}
+\usepackage{ctex}
+\pagestyle{empty}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{siunitx,chemmacros,chemfig}
+\setchemfig{bond offset = 0pt}
+\chemsetup[orbital]{
+  overlay,
+  opacity=0.5,
+  sp/scale=3.0,
+  s/color=blue!50,
+  s/scale=1.8,
+  p/scale=2.8
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth]
+  \begin{scope}[xshift=-1.35cm,yshift=-1.6cm,scale=0.4]
+  \begin{axis}[
+    axis lines=none,
+    axis equal image,
+  ]
+    \addplot3[
+    surf,
+    colormap/blackwhite,
+    samples=30,
+    domain=0:2*pi,y domain=0:2*pi,
+    z buffer=sort]
+    ({(3+cos(deg(x)))*cos(deg(y+pi/2))}, 
+    {(3+cos(deg(x)))*sin(deg(y+pi/2))}, 
+    {sin(deg(x))});
+  \end{axis}
+\end{scope}
+  \node {
+  \chemfig{
+    H-[:0,0.8]C
+    -[:45,0.8]C(-[:135,0.8]H)
+    -[:0,1.0]C(-[:45,0.8]H)
+    -[:-45,0.8]C(-[:0,0.8]H)
+    -[:-135,0.8]C(-[:-45,0.8]H)
+    -[:180,1]C(-[:-135,0.8]H)
+    -[:135,0.8]C
+    }
+  };
+  \begin{scope}[xshift=-1.35cm,yshift=0.4cm,scale=0.4]
+  \begin{axis}[
+    axis lines=none,
+    axis equal image,
+  ]
+    \addplot3[
+    surf,
+    colormap/blackwhite,
+    samples=30,
+    domain=0:2*pi,y domain=0:2*pi,
+    z buffer=sort]
+    ({(3+cos(deg(x)))*cos(deg(y+pi/2))}, 
+    {(3+cos(deg(x)))*sin(deg(y+pi/2))}, 
+    {sin(deg(x))});
+  \end{axis}
+\end{scope}
+  % \draw[very thin](-0.48,-0.7)--(-0.48,-2.1);
+  % \draw[draw=none](-0.48,2)--(-0.48,-1)(0.48,2)--(0.48,-1);
+  % \draw[very thin](0.48,-0.7)--(0.48,-2.1);
+  % \draw[very thin,<->](-0.48,-2.0)--(0.48,-2.0)node[midway,below]{\qty{1.4e-10}{m}};
+\end{tikzpicture}
+\end{document}

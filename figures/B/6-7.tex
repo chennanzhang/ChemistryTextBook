@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \fill[pattern=crosshatch dots](-0.3,0)rectangle(0.3,2);
+  \fill[left color=darkgray,right color=darkgray,middle color=white](-0.3,1.8)--++(0,0.2)--++(-0.05,0.2)--++(0.7,0)--++(-0.05,-0.2)--++(0,-0.2)--cycle;
+  \draw[fill=cyan!20!white,fill opacity=0.3](-0.3,0)--(-0.3,2)arc(0:90:0.05)--(0.35,2.05)arc(90:180:0.05)--(0.3,0);
+  \fill[left color=gray,right color=gray,middle color=white](-0.31,0)arc(180:270:0.25)--(0.06,-0.25)arc(-90:0:0.25)--cycle;
+  \fill[left color=gray,right color=gray,middle color=white](-0.05,-0.25)rectangle(0.05,-0.3);
+  \fill[left color=gray,right color=gray,middle color=white](-0.03,-0.4)rectangle(0.03,-0.3);
+  \draw(0,-0.4)--(0,-0.9)node[midway,left]{软水};
+  \draw[thick](-0.7,2.8)--(0,2.8)--(0,2.2);
+  \draw[very thin,->] (-1.7,2.8)--++(0.7,0)node[midway,above]{硬水};
+  \draw[very thin,->] (0.1,2.7)--(0.1,2.3);
+  \draw[very thin,->] (0.1,-0.4)--++(0,-0.4);
+  \draw[very thin](0,1.5)--++(-0.8,0)node[left]{磺化煤};
+  \draw[very thin](-0.3,0.5)--++(-0.5,0)node[left]{离子交换柱};
+\end{tikzpicture}
+\end{document}

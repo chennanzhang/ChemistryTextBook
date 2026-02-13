@@ -1,0 +1,82 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \begin{scope}
+    \draw(-0.6,0)rectangle(0.6,0.1)(-0.5,0.1)--(-0.5,2.0)--(-0.15,2.5)--(-0.15,3.2)--(0.15,3.2)--(0.15,2.5)--(0.5,2.0)--(0.5,0.1);
+    \draw(-0.5,2.0)--(0.5,2.0)(-0.15,2.5)--(-0.3,2.0)--(-0.3,1.5)(0.15,2.5)--(0.3,2.0)--(0.3,1.5);
+    \draw[double distance=1pt,rounded corners=3pt](-0.8,0.5)--(-0.35,0.5)--(-0.2,1.1)--(0,0.2)--(0.2,1.1)--(0.35,0.5)--(1.1,0.5)|-(1.7,0.8);
+    \draw(-0.2,3.2)--(0.2,3.2)--(0.18,3.3)--(-0.18,3.3)node[midway,above]{常压加热炉}--cycle;
+    \draw[double distance=1pt,rounded corners=3pt](-0.5,0)|-(-0.7,-0.2)(0.5,0)|-(0.7,-0.2);
+    \draw[->,very thin](-1.5,0.5)--++(0.5,0)node[midway,below]{原油};
+    \draw[->,very thin](0.6,0.7)--++(0.3,0);
+  \end{scope}
+  \begin{scope}[xshift=2cm]
+    \draw(-0.3,0)--(-0.3,3.5)arc(180:90:0.25)--(-0.05,3.8)--(0.05,3.8)--(0.05,3.75)arc(90:0:0.25)--(0.3,0)--cycle;
+    \draw[fill=white](-0.3,0.75)rectangle(-0.35,0.85)(-0.35,0.7)rectangle(-0.4,0.9);
+    \foreach \y in {0.6,1.2,1.8,2.4,3.0}
+    {
+      \draw[double](-0.3,\y)--++(0.6,0);
+    }
+    \draw[double distance=1pt,rounded corners=3pt](0,0)|-(2.4,-0.2)|-(3.4,0.5);
+    \draw[double distance=1pt,rounded corners=3pt](0,3.8)|-(1.0,4.3);
+    \draw[->,very thin](0.4,4.4)--++(0.3,0);
+    \draw[->,very thin](0.8,-0.1)--++(0.8,0)node[midway,above]{重油};
+    \foreach \y/\t in {1.5/轻柴油,2.1/煤油}
+    {
+      \draw[fill=white](0.3,\y-0.05)rectangle++(0.05,0.1);
+      \draw[fill=white](0.35,\y-0.1)rectangle++(0.05,0.2);
+      \draw[->,very thin](0.6,\y)--++(0.4,0)node[right]{\t};
+    }
+    \node at (-0.5,2.3){\parbox{1em}{\linespread{1}\selectfont 常\\压\\分\\馏\\塔}};
+  \end{scope}
+  \begin{scope}[xshift=3.3cm,yshift=3.5cm]
+    \draw(-0.3,0)--(-0.3,1.4)arc(180:90:0.25)--(-0.05,1.7)--(0.05,1.7)--(0.05,1.65)arc(90:0:0.25)--(0.3,0)--cycle;
+    \draw[fill=white](-0.3,0.75)rectangle(-0.35,0.85)(-0.35,0.7)rectangle(-0.4,0.9);
+    \foreach \y in {0.4,1.2}
+    {
+      \draw[double](-0.3,\y)--++(0.6,0);
+    }
+    \draw[double distance=1pt,rounded corners=3pt](0,0)|-(0.5,-0.5);
+    \draw[double distance=1pt,rounded corners=3pt](0,1.7)|-(0.5,2.0);
+    \draw[fill=white](0.5,-0.6)rectangle(0.55,-0.4);
+    \draw[->,very thin](0.6,-0.5)--++(0.5,0)node[right]{汽油};
+    \draw[->,very thin](0.6,2.0)--++(0.5,0)node[right]{石油气};
+  \end{scope}
+  \begin{scope}[xshift=6cm]
+    \draw(-0.6,0)rectangle(0.6,0.1)(-0.5,0.1)--(-0.5,2.0)--(-0.15,2.5)--(-0.15,3.2)--(0.15,3.2)--(0.15,2.5)--(0.5,2.0)--(0.5,0.1);
+    \draw(-0.5,2.0)--(0.5,2.0)(-0.15,2.5)--(-0.3,2.0)--(-0.3,1.5)(0.15,2.5)--(0.3,2.0)--(0.3,1.5);
+    \draw[double distance=1pt,rounded corners=3pt](-0.6,0.5)--(-0.35,0.5)--(-0.2,1.1)--(0,0.2)--(0.2,1.1)--(0.35,0.5)--(1.1,0.5)|-(1.7,0.8);
+    \draw(-0.2,3.2)--(0.2,3.2)--(0.18,3.3)--(-0.18,3.3)node[midway,above]{减压加热炉}--cycle;
+    \draw[double distance=1pt,rounded corners=3pt](-0.5,0)|-(-0.7,-0.2)(0.5,0)|-(0.7,-0.2);
+    \draw[->,very thin](0.6,0.7)--++(0.3,0);
+  \end{scope}
+  \begin{scope}[xshift=8cm]
+    \draw(-0.3,0)--(-0.3,3.5)arc(180:90:0.25)--(-0.05,3.8)--(0.05,3.8)--(0.05,3.75)arc(90:0:0.25)--(0.3,0)--cycle;
+    \draw[fill=white](-0.3,0.75)rectangle(-0.35,0.85)(-0.35,0.7)rectangle(-0.4,0.9);
+    \foreach \y in {0.6,1.2,1.8,2.4,3.0}
+    {
+      \draw[double](-0.3,\y)--++(0.6,0);
+    }
+    \draw[double distance=1pt,rounded corners=3pt](0,0)|-(1.5,-0.2);
+    \draw[double distance=1pt,rounded corners=3pt](0,3.8)|-(0.5,4.2);
+    \foreach \y/\t in {1.5/重润滑油,2.1/中润滑油,2.7/轻润滑油}
+    {
+      \draw[fill=white](0.3,\y-0.05)rectangle++(0.05,0.1);
+      \draw[fill=white](0.35,\y-0.1)rectangle++(0.05,0.2);
+      \draw[->,very thin](0.6,\y)--++(0.4,0)node[right]{\t};
+    }
+    \draw[fill=white](1.5,-0.3)rectangle(1.55,-0.1);
+    \draw[->,very thin](1.6,-0.2)--++(0.5,0)node[right]{渣油};
+    \draw[->,very thin](0.6,4.2)--++(0.4,0)node[right]{重柴油};
+    \node at (-0.5,2.3){\parbox{1em}{\linespread{1}\selectfont 减\\压\\分\\馏\\塔}};
+  \end{scope}
+  
+\end{tikzpicture}
+\end{document}

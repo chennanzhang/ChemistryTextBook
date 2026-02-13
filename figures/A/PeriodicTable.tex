@@ -1,0 +1,150 @@
+\documentclass[tikz,border={120  20 120 20}]{standalone}
+\usepackage{ctex}
+\setCJKmainfont{Noto Sans CJK SC}
+\usepackage{xpinyin}
+\newfontfamily\PinYinFont{TeX Gyre Adventor}
+\xpinyinsetup{font=\PinYinFont,ratio=0.5}
+\colorlet{AlkaliMetal}{blue!35!white}
+\colorlet{AlkalineEarthMetal}{blue!25!white}
+\colorlet{Metal}{blue!15!white}
+\colorlet{Metalloid}{orange!35!white}
+\colorlet{Nonmetal}{green!15!white}
+\colorlet{Halogen}{green!25!white}
+\colorlet{NobleGas}{green!35!white}
+\colorlet{LanthanideActinide}{purple!35!white}
+\colorlet{Element}{yellow!15!white}
+
+\begin{document}
+% Draw the Contour of Groups
+\def\DrawGroup;{
+    \fill[Element](15in,0in)rectangle++(1in,1in);
+    \fill[AlkaliMetal](15in,0in)rectangle++(1in,-6in);
+    \fill[AlkalineEarthMetal](16in,0in)rectangle++(1in,-6in);
+    \fill[Metal](17in,-2in)|-++(1in,-2in)|-++(13in,-2in)|-++(-1in,1in)|-++(-1in,1in)|-++(-1in,1in)|-++(-1in,2in)|-cycle;
+    \fill[Metalloid](27in,0)|-++(1in,-1in)|-++(1in,-2in)|-++(1in,-1in)|-++(1in,-1in)|-++(-1in,2in)|-++(-1in,1in)|-++(-1in,1in)|-cycle;
+    \fill[Nonmetal](28in,0in)|-++(1in,-1in)|-++(1in,-1in)|-++(1in,-1in)|-cycle;
+    \fill[Halogen](31in,0in)rectangle++(1in,-6in);
+    \fill[NobleGas](32in,1in)rectangle++(1in,-7in);
+    \fill[LanthanideActinide](17in,-4in)rectangle++(1in,-2in);
+    \fill[LanthanideActinide](17in,-7in)rectangle++(14in,-2in);
+    \draw[ultra thick](14.6in,1.4in)|-++(18.4in,-7.4in)|-++(-1in,7.4in)|-++(-5in,-1in)|-++(-10in,-2in)|-++(-1in,2in)|-cycle;
+    \draw[ultra thick](17in,-7in)rectangle++(14in,-2in);
+    \draw[ultra thick,dashed](17in,-4in)--(17in,-7in);
+    \foreach \y in {1,0,...,-6} {\draw(14.6in,\y in)--++(0.4in,0);}
+    \foreach \y[count=\i] in {0.5,-0.5,-1.5,-2.5,-3.5,-4.5,-5.5} {\node at (14.8in,\y in){\Large\sffamily\bfseries\i};}
+    \foreach \x in {17,...,22,25,26} {\draw(\x in,-2in)--++(0,0.4in);}
+    \foreach \x in {28,...,31} {\draw(\x in,0)--++(0,0.4in);}
+    \draw(15 in,1in)--++(0,0.4in)(15 in,1in)--++(-0.4in,0.4in);
+    \node at (14.8in,1.2in)[inner sep=1pt,above right]{族};
+    \node at (14.6in,1.19in)[inner sep=1pt,right]{周};
+    \node at (14.79in,1in)[inner sep=1pt,above]{期};
+    \foreach \x/\t in {15.5/IA,32.5/0} {\node at (\x in,1.2 in){\Large\sffamily\bfseries\t};}
+    \foreach \x/\t in {16.5/IIA,27.5/IIIA,28.5/IVA,29.5/VA,30.5/VIA,31.5/VIIA} {\node at (\x in,0.2 in){\Large\sffamily\bfseries\t};}
+    \foreach \x/\t in {17.5/IIB,18.5/IVB,19.5/VB,20.5/VIB,21.5/VIIB,23.5/VIII,25.5/IB,26.5/IIB} {\node at (\x in,-1.8 in){\Large\sffamily\bfseries\t};}
+    \node at (23in,1.0in)[above]{\Huge\makebox[9em][s]{元素周期表}};
+    \node at (23in,1.0in)[below]{\Large\scshape Periodic Table of the Elements};
+    \begin{scope}[xshift=19in,yshift=-1.3in,scale=2]
+        \draw (0,0)rectangle++(1in,1in);
+        \node (N)   at (0.05 in,0.95in)[below right]{\scalebox{2}{\Large\bfseries\sffamily 92}};
+        \node (qty) at (0.95in,0.95in) [below left]{\scalebox{2}{\small 238.03}};
+        \node (formula) at (0.951in,.7in)[left]{\scalebox{2}{$5f^36d^17s^2$}};
+        \node (char) at (0.65in,.3in)[above left,text=red!80!black]{\scalebox{2}{\huge\bfseries U}};
+        \node (cn) at (0.65in,.3in)[above right]{\scalebox{2}{\large\xpinyin*{铀}}};
+        \node (en) at (0.5in,.3in)[below]{\scalebox{2}{Uranium}};
+        \draw (N.west)--++(180:0.7)node[left]{原子序号};
+        \draw (char.west)--++(180:1.4)node[left]{元素符号};
+        \draw (en.west)--++(180:1.1)node[left]{元素英文名称};
+        \draw (qty.east)--++(0:0.7)node[right]{原子量};
+        \draw (formula.east)--++(0:0.7)node[right]{外围电子层排布};
+        \draw ([yshift=0.08in]cn.east)--++(0:0.9)node[right]{中文名称拼音};
+        \draw ([yshift=-0.04in]cn.east)--++(0:0.9)node[right]{中文名称};
+        \node (fz) at (2in,0)[anchor=south west]{\begin{minipage}{7cm}\begin{enumerate}\item 元素符号为红色表示元素为放射性元素。\item 原子量加括号者为放射性元素半衰期最长的同位素的质量数。\end{enumerate}\end{minipage}};
+        \node at (fz.north west)[anchor=north east]{附注：};
+        \draw [fill=LanthanideActinide] (3in,0.35in)rectangle++(0.2in,0.1in)node[below right] {镧系元素和锕系元素};
+        \draw [fill=NobleGas] (2.1in,0.35in)rectangle++(0.2in,0.1in)node[below right] {稀有气体};
+        \draw [fill=Halogen] (3in,0.5in)rectangle++(0.2in,0.1in)node[below right] {卤族元素};
+        \draw [fill=Nonmetal] (2.1in,0.5in)rectangle++(0.2in,0.1in)node[below right] {非金属元素};
+        \draw [fill=Metalloid] (3in,0.65in)rectangle++(0.2in,0.1in)node[below right] {类金属元素};
+        \draw [fill=Metal] (2.1in,0.65in)rectangle++(0.2in,0.1in)node[below right] {金属元素};
+        \draw [fill=AlkalineEarthMetal] (3in,0.8in)rectangle++(0.2in,0.1in)node[below right] {碱土金属元素};
+        \draw [fill=AlkaliMetal] (2.1in,0.8in)rectangle++(0.2in,0.1in)node[below right] {碱金属元素};
+    \end{scope}
+}
+
+% Atomic Number \PNn => Coordinate (\PNx,\PNy)
+\def\PositionByNumber;{
+    \pgfmathtruncatemacro\PNn{\n}
+    \foreach\PNa/\PNb in{1/30,34/24,66/24,98/14,130/14}{
+        \ifnum\PNn>\PNa
+            \pgfmathtruncatemacro\PNn{\PNn+\PNb}\xdef\PNn{\PNn}
+        \fi
+    }
+}
+
+% Coordinate (\PNx,\PNy) => Move and Group
+\def\GroupByPosition;{
+    \pgfmathtruncatemacro\PNx{mod(\PNn-.5,32)+.5}
+    \pgfmathtruncatemacro\PNy{(\PNn-\PNx)/32}
+    \ifnum\PNx>2
+        \ifnum\PNx<17
+            \pgfmathtruncatemacro\PNx{\PNx+14}
+            \pgfmathtruncatemacro\PNy{\PNy+3}
+        \fi
+    \fi
+    \ifnum\PNx<3
+        \pgfmathtruncatemacro\PNx{\PNx+14}
+    \fi
+    \pgftransformreset;\pgftransformxshift{\PNx in};\pgftransformyshift{-\PNy in};
+}
+
+% Atomic Number \APn => Electron Configuration \APe1 \APe2 \APe3 ...
+\def\AufbauPrinciple;{
+    \pgfmathtruncatemacro\APn{\n}
+    \xdef\APi{0}
+    \foreach\APa in{2,2,6,2,6,2,10,6,2,10,6,2,14,10,6,2,14,10,6,2}{
+        \pgfmathtruncatemacro\APi{\APi+1}\xdef\APi{\APi}
+        \ifnum\APn>\APa
+            \expandafter\xdef\csname APe\APi\endcsname{$\bullet$}
+            \pgfmathtruncatemacro\APn{\APn-\APa}\xdef\APn{\APn}
+        \else\ifnum\APn>0
+            \expandafter\xdef\csname APe\APi\endcsname{\APn}
+            \pgfmathtruncatemacro\APn{\APn-\APn}\xdef\APn{\APn}
+        \else
+            \expandafter\xdef\csname APe\APi\endcsname{}
+        \fi\fi
+    }
+}
+
+% Print the Configuration 
+\def\DrawConfiguration;{
+    \xdef\DCi{0}
+    \foreach\DCa/\DCb in{1/1,1/2,2/2,1/3,2/3,1/4,3/3,2/4,1/5,3/4,2/5,1/6,4/4,3/5,2/6,1/7,4/5,3/6,2/7,1/8}{
+        \pgfmathtruncatemacro\DCi{\DCi+1}\xdef\DCi{\DCi}
+        \path[scale=.2](\DCa,\DCb)node{\csname APe\DCi\endcsname};
+    }
+}
+
+\newread\linereader
+\def\foreachline#1#2{\openin\linereader=#1\nextline#2}
+\def\nextline#1{\read\linereader to \line\ifeof\linereader\closein\linereader\else\expandafter#1\line\end\expandafter\nextline\expandafter#1\fi}
+\def\element#1 #2 #3 #4 #5 #6 #7 #8\end{
+    \xdef\n{#1}
+    \PositionByNumber;
+    \GroupByPosition;
+    \draw[black]
+    (0,0)rectangle(1in,1in)
+    (0,1in)node[below right]{\Large\bfseries\sffamily #1}
+    (1in,1in)node[below left]{\small #6}
+    (1in,.7in)node[left]{$#4$}
+    (0.65in,.3in)node[above left,text=#7!80!black]{\huge\bfseries #2}
+    node[above right]{\large\xpinyin*{#5}}
+    (0.5in,.3in)node[below]{#3};
+    \message{[\n]}
+}
+
+\small
+\begin{tikzpicture}
+    \DrawGroup;
+    \foreachline{elements.txt}\element
+\end{tikzpicture}
+\end{document}

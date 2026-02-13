@@ -47,12 +47,12 @@
   \item 铁的原子量是 55.85，\qty{1}{mol} 铁原子的质量是 \qty{55.85}{g}。
 \end{itemize}
 
-其次，我们用摩尔来衡量双原子分子或多原子分子构成的各种物质的时候，那么同样地可以推知，\qty{1}{mol} 任何分子的质量，就是以克为单位，数值上等于该种分子的分子量。
+其次，我们用摩尔来衡量双原子分子或多原子分子构成的各种物质的时候，那么同样地可以推知，\qty{1}{mol} 任何分子的质量，就是以克为单位，数值上等于该种分子的式量。
 \begin{itemize}[label={},labelsep=0pt]
-  \item 氢气的分子量是 2，\qty{1}{mol} 氢气的质量是 \qty{2}{g}，
-  \item 氧气的分子量是 32，\qty{1}{mol} 氧气的质量是 \qty{32}{g}，
-  \item 二氧化碳的分子量是 44，\qty{1}{mol} 二氧化碳的质量是 \qty{44}{g}，
-  \item 水的分子量是 18，\qty{1}{mol} 水的质量是 \qty{18}{g}。
+  \item 氢气的式量是 2，\qty{1}{mol} 氢气的质量是 \qty{2}{g}，
+  \item 氧气的式量是 32，\qty{1}{mol} 氧气的质量是 \qty{32}{g}，
+  \item 二氧化碳的式量是 44，\qty{1}{mol} 二氧化碳的质量是 \qty{44}{g}，
+  \item 水的式量是 18，\qty{1}{mol} 水的质量是 \qty{18}{g}。
 \end{itemize}
 
 当摩尔应用于表示离子的时候，同样可以推知 \qty{1}{mol} 离子的质量。
@@ -83,7 +83,7 @@
   \qty{90}{g} 水相当于多少摩尔水分子？
 \end{example}
 \begin{solution}
-  水的分子量是 18，水的摩尔质量是 \qty{18}{g/mol}。
+  水的式量是 18，水的摩尔质量是 \qty{18}{g/mol}。
   \[ \frac{\qty{90}{g}}{\qty{18}{g/mol}}=\qty{5}{mol}\]
   答：\qty{90}{g} 水相当于 \qty{5}{mol} 水，也可以说 \qty{90}{g} 水所含的摩尔数是 5 。
 \end{solution}
@@ -101,7 +101,7 @@
   \qty{4.9}{g} 硫酸里含有多少硫酸分子？
 \end{example}
 \begin{solution}
-  硫酸的分子量是 98，硫酸的摩尔质量是 \qty{98}{g/mol}。
+  硫酸的式量是 98，硫酸的摩尔质量是 \qty{98}{g/mol}。
   \[\begin{split} 
   \frac{\qty{4.9}{g}}{\qty{98}{g/mol}} & = \qty{0.05}{mol}\\
   \qty{4.9}{g}\ \text{硫酸的分子数}    & = \qty{6.02e23}{mol^{-1}} \times \qty{0.05}{mol}\\
@@ -116,11 +116,11 @@
     \item 选择正确的答案填写在括号里。
     
     \noindent\qty{0.5}{mol} 氢气含有（\hspace{2em}）
-    \begin{tasks}(3)
+    \begin{tasks}[label=\Alph*.](3)
       \task 0.5 个氢分子
       \task 1 个氢原子
       \task \num{6.02e23} 个氢原子
-      \task \num{3.01e23} 个氢分子
+      \task*(2) \num{3.01e23} 个氢分子
       \task \num{3.01e12} 个氢分子
     \end{tasks}
     \item 计算 \qty{1}{mol} 下列物质的质量。
@@ -155,10 +155,12 @@
 \section{气体摩尔体积}
 \subsection{气体摩尔体积}
 对于固态或液态的物质来说，\qty{1}{mol} 各种物质的体积是不相同的。
-例如，\qty{20}{\celsius} 时，\qty{1}{mol} 铁的体积是 \qty{7.1}{cm^3}，\qty{1}{mol} 铝的体积是 \qty{10}{cm^3}，\qty{1}{mol} 铅的体积是 \qty{18.3}{cm^3}（\cref{fig:1-1}）；\qty{1}{mol} 水的体积是 \qty{18.0}{cm^3}， \qty{1}{mol} 纯硫酸的体积是 \qty{54.1}{cm^3}，\qty{1}{mol} 蔗糖的体积是 \qty{215.5}{cm^3}（图 1-2）。
+例如，\qty{20}{\celsius} 时，\qty{1}{mol} 铁的体积是 \qty{7.1}{cm^3}，\qty{1}{mol} 铝的体积是 \qty{10}{cm^3}，\qty{1}{mol} 铅的体积是 \qty{18.3}{cm^3}（\cref{fig:1-1}）；\qty{1}{mol} 水的体积是 \qty{18.0}{cm^3}， \qty{1}{mol} 纯硫酸的体积是 \qty{54.1}{cm^3}，\qty{1}{mol} 蔗糖的体积是 \qty{215.5}{cm^3}（\cref{fig:1-2}）。
 \begin{figure}
   \includegraphics{1-1.pdf}
   \caption{\qty{1}{mol}的几种金属}\label{fig:1-1}
+  \par\medskip
+  \includegraphics{1-2.pdf}
   \caption{\qty{1}{mol}的几种化合物}\label{fig:1-2}
 \end{figure}
 
@@ -180,12 +182,12 @@
 从上面几个例子可以看出，在标准状况时，\qty{1}{mol} 三种气体的体积都约是 \qty{22.4}{L}。
 而且经过许多实验发现和证实，\qty{1}{mol} 的任何气体在标准状况下所占的体积都约是 \qty{22.4}{L}（\cref{fig:1-3}）。
 \begin{figure}
-  \begin{minipage}{0.48\linewidth}\centering
-    % \includegraphics{1-3.pdf}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-3.pdf}
     \caption{气体摩尔体积}\label{fig:1-3}
   \end{minipage}
-  \begin{minipage}{0.48\linewidth}\centering
-    % \includegraphics{1-4.pdf}
+  \begin{minipage}[b]{0.48\linewidth}\centering
+    \includegraphics{1-4.pdf}
     \caption{气体分子的运动和距离}\label{fig:1-4}
   \end{minipage}
 \end{figure}
@@ -200,7 +202,7 @@
 这就可以推知，气体体积主要决定于分子间的平均距离，而不象液体或固体那样，体积主要决定于分子的大小。
 在标准状况下，不同气体分子间的平均距离几乎是相等的，所以任何物质的气体摩尔体积都约是 \qty{22.4}{L/mol}。
 \begin{figure}
-  % \includegraphics{1-5.pdf}
+  \includegraphics{1-5.pdf}
   \caption{固体、液体跟气体的分子间距离比较示意图（以碘为例）}\label{fig:1-5}
 \end{figure}
 
@@ -213,7 +215,7 @@
 在相同的温度和压强下，相同体积的任何气体都含有相同数目的分子，这就是阿伏伽德罗定律。
 
 \begin{Theorem}{讨论}
-如果已经知道水的分子式是 \ce{H2O}，我们能够根据氢气跟氧气化合成水蒸气的体积比是 $2:1:2$，应用阿伏伽德罗定律来证明 1 个氧分子里含有 2 个氧原子吗？
+如果已经知道水的化学式是 \ce{H2O}，我们能够根据氢气跟氧气化合成水蒸气的体积比是 $2:1:2$，应用阿伏伽德罗定律来证明 1 个氧分子里含有 2 个氧原子吗？
 \end{Theorem}
 
 \subsection{关于气体摩尔体积的计算}
@@ -221,7 +223,7 @@
   \qty{5.5}{g} 氨相当于多少摩尔氨，在标准状况时它的体积应是多少升？
 \end{example}
 \begin{solution}
-  氨的分子量是 17，氨的摩尔质量是 \qty{17}{g/mol}。
+  氨的式量是 17，氨的摩尔质量是 \qty{17}{g/mol}。
   \[\begin{split} 
     \frac{\qty{5.5}{g}}{\qty{17}{g/mol}} &= \qty{0.32}{mol} \\
     \qty{5.5}{g}\ \text{氨的体积} & = \qty{22.4}{L/mol} \times \qty{0.32}{mol} =\qty{7.2}{L}
@@ -246,18 +248,18 @@
 \end{solution}
 
 \begin{example}
-  在标准状况时，\qty{0.20}{L} 的容器里所含一氧化碳的质量为 \qty{0.25}{g}，计算一氧化碳的分子量。
+  在标准状况时，\qty{0.20}{L} 的容器里所含一氧化碳的质量为 \qty{0.25}{g}，计算一氧化碳的式量。
 \end{example}
 
-根据摩尔体积可以计算出一氧化碳的摩尔质量，而摩尔质量的数值就等于它的分子量。
+根据摩尔体积可以计算出一氧化碳的摩尔质量，而摩尔质量的数值就等于它的式量。
 
 \begin{solution}
   \[\begin{split}
     \text{一氧化碳的摩尔质量} & = \text{一氧化碳的密度} \times \text{一氧化碳的摩尔体积}\\
     & = \frac{\qty{0.25}{g}}{\qty{0.20}{L}} \times \qty{22.4}{L} = \qty{28}{g/mol}\\ 
-    \text{一氧化碳的分子量} & = 28
+    \text{一氧化碳的式量} & = 28
   \end{split}\]
-  答：一氧化碳的分子量是 28。
+  答：一氧化碳的式量是 28。
 \end{solution}
 
 \begin{Practice}[习题]
@@ -274,7 +276,7 @@
     \item 在标准状况时，\qty{4.4}{g} 二氧化碳的体积跟多少克氧气的体积相等？
     \item 在实验室制备氢气的时候，用 \qty{0.1}{mol} 的锌跟足量稀盐酸起反应，计算所产生的氢气的体积（在标准状况）。
     \item 氮气在标准状况时的密度是 \qty{1.25}{g/L}，液态氮在 \qty{-195.8}{\celsius} 的密度是 \qty{0.808}{g/cm^3}，固态氮在  \qty{-232.5}{\celsius} 的密度是 \qty{1.026}{g/cm^3}，比较 \qty{1}{mol} 的氮在气态、液态、固态各占多少体积。
-    \item 在标准状况时，\qty{235}{mL} 某种气体的质量是 \qty{0.406}{g}，计算这种气体的分子量。
+    \item 在标准状况时，\qty{235}{ml} 某种气体的质量是 \qty{0.406}{g}，计算这种气体的式量。
   \end{question}
 \end{Practice}
 
@@ -299,9 +301,10 @@
 溶液用摩尔浓度表示时，常简称为摩尔溶液。
 
 \begin{Experiment}*%[righthand ratio=0.3]
-  在天平上称出 \qty{29.3}{g} 氯化钠，把称好的氯化钠放在烧杯里，用适量蒸馏水使它完全溶解。把制得的溶液小心地注入 \qty{1000}{mL} 的容量瓶（\cref{fig:1-6}）。用蒸馏水洗涤烧杯内壁两次，把每次洗下来的水都注入容量瓶。振荡容量瓶里的溶液使混和均匀。然后缓缓地把蒸馏水直接注入容量瓶直到液面接近刻度 \qtyrange{2}{3}{cm} 处。改用胶头滴管加水到瓶颈刻度的地方，使溶液的凹面正好跟刻度相平。把容量瓶塞好，反复摇匀。
+  在天平上称出 \qty{29.3}{g} 氯化钠，把称好的氯化钠放在烧杯里，用适量蒸馏水使它完全溶解。把制得的溶液小心地注入 \qty{1000}{ml} 的容量瓶（\cref{fig:1-6}）。用蒸馏水洗涤烧杯内壁两次，把每次洗下来的水都注入容量瓶。振荡容量瓶里的溶液使混和均匀。然后缓缓地把蒸馏水直接注入容量瓶直到液面接近刻度 \qtyrange{2}{3}{cm} 处。改用胶头滴管加水到瓶颈刻度的地方，使溶液的凹面正好跟刻度相平。把容量瓶塞好，反复摇匀。
   \tcblower
   \begin{figurehere}
+    \includegraphics{1-6.pdf}
     \caption{配置摩尔浓度的溶液}\label{fig:1-6}
   \end{figurehere}
 \end{Experiment}
@@ -323,30 +326,30 @@
 \subsection{关于摩尔浓度的计算}
 \subsubsection{已知溶质的质量和溶液的体积，计算溶液的摩尔浓度}
 \begin{example}
-在 \qty{200}{mL} 稀盐酸里溶有 \qty{0.73}{g} \ce{HCl}，计算溶液的摩尔浓度。
+在 \qty{200}{ml} 稀盐酸里溶有 \qty{0.73}{g} \ce{HCl}，计算溶液的摩尔浓度。
 \end{example}
 摩尔浓度所表示的就是 \qty{1}{L} 溶液里含多少摩尔溶质，在这题里，就是要算出 \qty{1}{L} 溶液里含多少摩尔的 \ce{HCl}。
 \begin{solution}
-\ce{HCl} 的分子量是 36.5，它的摩尔质量是 \qty{36.5}{g/mol}。\qty{0.73}{g} \ce{HCl} 相当于：
+\ce{HCl} 的式量是 36.5，它的摩尔质量是 \qty{36.5}{g/mol}。\qty{0.73}{g} \ce{HCl} 相当于：
 \[ \frac{\qty{0.73}{g}}{\qty{36.5}{g/mol}} = \qty{0.02}{mol}\]
 
-\qty{1000}{mL} 溶液中含 \ce{HCl}
-\[ \qty{0.02}{mol} \times \frac{\qty{1000}{mL}}{\qty{200}{mL}} = \qty{0.1}{mol}\]
+\qty{1000}{ml} 溶液中含 \ce{HCl}
+\[ \qty{0.02}{mol} \times \frac{\qty{1000}{ml}}{\qty{200}{ml}} = \qty{0.1}{mol}\]
 答：这种稀盐酸的浓度是 $0.1M$。
 \end{solution}
 
 \subsubsection{已知溶液的摩尔浓度，计算一定体积的溶液里所含溶质的质量}
 \begin{example}
-  计算配制 \qty{500}{mL} $0.1M$ 的 \ce{NaOH} 溶液所需 \ce{NaOH} 的质量。
+  计算配制 \qty{500}{ml} $0.1M$ 的 \ce{NaOH} 溶液所需 \ce{NaOH} 的质量。
 \end{example}
 \begin{solution}
-  \ce{NaOH} 的分子量是 40，它的摩尔质量是 \qty{40}{g/mol}。
+  \ce{NaOH} 的式量是 40，它的摩尔质量是 \qty{40}{g/mol}。
 
   \qty{0.1}{mol} 的 \ce{NaOH} 的质量 $= \qty{40}{g/mol} \times \qty{0.1}{mol}=\qty{4}{g}$
 
-  \qty{500}{mL} $0.1M$ \ce{NaOH} 溶液所含 \ce{NaOH} 的质量是：
-  \[ \frac{\qty{500}{mL}\times\qty{4}{g}}{\qty{1000}{mL}} =\qty{2}{g}\]
-  答: 制备 \qty{500}{mL} $0.1M$ 的 \ce{NaOH} 溶液需 \qty{2}{g} \ce{NaOH}。
+  \qty{500}{ml} $0.1M$ \ce{NaOH} 溶液所含 \ce{NaOH} 的质量是：
+  \[ \frac{\qty{500}{ml}\times\qty{4}{g}}{\qty{1000}{ml}} =\qty{2}{g}\]
+  答: 制备 \qty{500}{ml} $0.1M$ 的 \ce{NaOH} 溶液需 \qty{2}{g} \ce{NaOH}。
 \end{solution}
 
 \subsubsection{应用摩尔浓度作关于浓溶液稀释的计算}
@@ -354,7 +357,7 @@
   20\% 的蔗糖溶液 \qty{200}{g}，加适量的水稀释到 \qty{1}{L}，计算稀释后蔗糖溶液的摩尔浓度。
 \end{example}
 \begin{solution}
-  蔗糖 \ce{C12H22O11} 的分子量是 342，蔗糖的摩尔质量是 \qty{342}{g/mol}。
+  蔗糖 \ce{C12H22O11} 的式量是 342，蔗糖的摩尔质量是 \qty{342}{g/mol}。
 
   溶液里所含蔗糖的质量是 $\qty{200}{g} \times 20\% = \qty{40}{g}$
   \[\frac{\qty{40}{g}}{\qty{342}{g/mol}}=\qty{0.117}{mol}\]
@@ -364,26 +367,26 @@
 \noindent 答: 蔗糖溶液的摩尔浓度是 $0.117M$。
 \end{solution}
 \begin{example}
-  计算配制 \qty{500}{mL} $1M$ 的硫酸溶液需要密度为 \qty{1.836}{g/cm^3} 的浓硫酸 （98\% \ce{H2SO4}）多少毫升?
+  计算配制 \qty{500}{ml} $1M$ 的硫酸溶液需要密度为 \qty{1.836}{g/cm^3} 的浓硫酸 （98\% \ce{H2SO4}）多少毫升?
 \end{example}
 
 浓硫酸稀释后，所含 \ce{H2SO4} 的质量是不变的，因而在硫酸溶液里多少摩尔  \ce{H2SO4} 等于浓硫酸里多少摩尔的 \ce{H2SO4}。 
 先算出硫酸溶液里含多少摩尔 \ce{H2SO4}，再算出浓硫酸的摩尔浓度，从所含多少摩尔 \ce{H2SO4} 可以算出需要的浓硫酸的体积。
 \begin{solution}
 硫酸溶液中含 \ce{H2SO4}
-\[ \frac{\qty{500}{mL}}{\qty{1000}{mL}}\times \qty{1}{mol} =\qty{0.5}{mol} \]
+\[ \frac{\qty{500}{ml}}{\qty{1000}{ml}}\times \qty{1}{mol} =\qty{0.5}{mol} \]
 
 硫酸的摩尔质量 $=\qty{98}{g/mol}$
 
-\qty{1000}{mL} 浓硫酸中 \ce{H2SO4} 的质量
-\[ = \qty{1000}{mL} \times \qty{1.836}{mL} \times \frac{98}{100} = \qty{1799}{g}\]
+\qty{1000}{ml} 浓硫酸中 \ce{H2SO4} 的质量
+\[ = \qty{1000}{ml} \times \qty{1.836}{ml} \times \frac{98}{100} = \qty{1799}{g}\]
 
-\qty{1000}{mL} 浓硫酸里含 \ce{H2SO4}
+\qty{1000}{ml} 浓硫酸里含 \ce{H2SO4}
 \[ \frac{\qty{1799}{g}}{\qty{98}{g/mol}}=\qty{18.4}{mol} \]
 
 含 \qty{0.5}{mol} \ce{H2SO4} 的浓硫酸的体积
-\[ = \frac{\qty{0.5}{mol}}{\qty{18.4}{mol/L}}=\qty{0.0272}{L}=\qty{27.2}{mL} \]
-需要浓硫酸 （98\% \ce{H2SO4}）\qty{27.2}{mL}。
+\[ = \frac{\qty{0.5}{mol}}{\qty{18.4}{mol/L}}=\qty{0.0272}{L}=\qty{27.2}{ml} \]
+需要浓硫酸 （98\% \ce{H2SO4}）\qty{27.2}{ml}。
 \end{solution}
 
 \subsubsection{已知起反应的两种溶液的摩尔浓度以及其中一种溶液的体积，计算另一种溶液的体积}
@@ -407,7 +410,7 @@
 
 \begin{Practice}[习题]
   \begin{question}
-    \item 制备下列各物质的 $0.2M$ 溶液各 \qty{50}{mL}，需用下列物质各多少克？
+    \item 制备下列各物质的 $0.2M$ 溶液各 \qty{50}{ml}，需用下列物质各多少克？
     \begin{tasks}(4)
       \task \ce{HClO3}
       \task \ce{H2SO4}
@@ -424,13 +427,13 @@
     \item 下列说法是否正确，说明理由。
     \begin{tasks}
       \task 体积相同、摩尔浓度相同的任何物质的溶液含有相同的分子数。
-      \task \qty{10}{mL} $1M$ 硫酸溶液比 \qty{100}{mL} $1M$ 硫酸溶液的浓度小。
-      \task \qty{100}{mL} $0.1M$ 硫酸溶液和 \qty{50}{mL} $1M$ 硫酸溶液分别跟\qty{10}{mL} $1M$ \ce{BaCl2} 溶液起反应，前者生成的 \ce{BaSO4} 沉淀多。 
+      \task \qty{10}{ml} $1M$ 硫酸溶液比 \qty{100}{ml} $1M$ 硫酸溶液的浓度小。
+      \task \qty{100}{ml} $0.1M$ 硫酸溶液和 \qty{50}{ml} $1M$ 硫酸溶液分别跟\qty{10}{ml} $1M$ \ce{BaCl2} 溶液起反应，前者生成的 \ce{BaSO4} 沉淀多。 
     \end{tasks}
-    \item 中和 \qty{4}{g} 氢氧化钠，用去盐酸 \qty{25}{mL}，计算这种盐酸的摩尔浓度。
-    \item 某种待测浓度的 \ce{NaOH} 溶液 \qty{25}{mL}，加入 \qty{20}{mL} $1M$ 的 \ce{H2SO4} 溶液后已显酸性，再滴入 $1M$ \ce{KOH} 溶液 \qty{1.5}{mL} 才达到中和。计算待测浓度的 \ce{NaOH} 溶液的摩尔浓度。
+    \item 中和 \qty{4}{g} 氢氧化钠，用去盐酸 \qty{25}{ml}，计算这种盐酸的摩尔浓度。
+    \item 某种待测浓度的 \ce{NaOH} 溶液 \qty{25}{ml}，加入 \qty{20}{ml} $1M$ 的 \ce{H2SO4} 溶液后已显酸性，再滴入 $1M$ \ce{KOH} 溶液 \qty{1.5}{ml} 才达到中和。计算待测浓度的 \ce{NaOH} 溶液的摩尔浓度。
     \item 37\% 的盐酸（密度 \qty{1.19}{g/cm^3}）相当于多少摩尔浓度的盐酸?
-    \item 实验室常用的 65\% 浓硝酸，密度为 \qty{1.4}{g/cm^3}，计算它的摩尔浓度。要配制 $3M$ 的硝酸 \qty{100}{mL}，需用这种浓硝酸多少毫升?
+    \item 实验室常用的 65\% 浓硝酸，密度为 \qty{1.4}{g/cm^3}，计算它的摩尔浓度。要配制 $3M$ 的硝酸 \qty{100}{ml}，需用这种浓硝酸多少毫升?
   \end{question}
 \end{Practice}
 
@@ -496,7 +499,7 @@
 
 \[ \ce{H2}\,\text{（气）} + \frac{1}{2}\ce{O2}\,\text{（气）} \xlongequal{\quad} \ce{H2O}\,\text{（液）} +\qty{68.3}{kCal}\]
 
-在计算燃烧热时，可燃物质是以 \qty{1}{mol} 作为标准来计算的，所以热化学方程式里的元素符号或分子式前面的系数可以用分数表示。
+在计算燃烧热时，可燃物质是以 \qty{1}{mol} 作为标准来计算的，所以热化学方程式里的元素符号或化学式前面的系数可以用分数表示。
 
 由实验测得，\qty{1}{mol} 气态一氧化碳燃烧而生成气态二氧化碳时，放出 \qty{67.6}{kCal} 的热。
 
@@ -524,13 +527,23 @@
 \end{Practice}
 
 \section*{内容提要}
-\setcounter{subsection}{0}
-\subsection{摩尔}
+\addcontentsline{toc}{section}{内容提要}\setcounter{subsection}{0}
+\subsection*{一、摩尔}
 摩尔是表示物质的量的单位，每摩尔物质含有阿伏伽德罗常数个微粒（分子、原子、离子等）。
 
+\begin{figurehere}
+  \includegraphics{1-a.pdf}
+\end{figurehere}
 
-\subsection{反应热}
-\begin{enumerate}
+\begin{align*}
+  \text{物质的量}(\unit{mol})&=\frac{\text{物质的质量}(\unit{g})}{\text{物质的摩尔质量}(\unit{g/mol})}\\
+  \text{气体物质的量}(\unit{mol})&=\frac{\text{气体的体积}(\unit{L})}{\text{气体的摩尔体积}(\qty{22.4}{L/mol})}\\
+  \text{摩尔浓度}(\unit{M})&=\frac{\text{溶质的量}\unit{mol}}{\text{溶液的体积}(\unit{L})}
+\end{align*}
+
+
+\subsection*{二、反应热}
+\begin{enumerate}[1.]
   \item 热化学方程式: 表明反应所放出或吸收的热量的化学方程式。
   \item 燃烧热: \qty{1}{mol} 物质在完全燃烧时所放出的热量。燃烧热热量的计算以 \qty{1}{mol} 反应物（可燃物）为单位。
 \end{enumerate}
@@ -549,14 +562,14 @@
       \task 哪一种物质所含分子数最多，哪一种最少？
       \task 哪一种物质所占体积最大，哪一种最小？
     \end{tasks}
-    \item \qty{2}{g} 硫铵肥料跟浓碱液混和加热，收集到 \qty{600}{mL} 氨（标准状况）。计算肥料含氮元素的百分比。
-    \item 浓度为 15\%、密度为 \qty{1.2}{g/cm^3} 的废硫酸 \qty{250}{mL}（不含铁化合物或其它酸）跟过量的铁屑充分反应， 计算:
+    \item \qty{2}{g} 硫铵肥料跟浓碱液混和加热，收集到 \qty{600}{ml} 氨（标准状况）。计算肥料含氮元素的百分比。
+    \item 浓度为 15\%、密度为 \qty{1.2}{g/cm^3} 的废硫酸 \qty{250}{ml}（不含铁化合物或其它酸）跟过量的铁屑充分反应， 计算:
     \begin{tasks}
       \task 这种废硫酸的摩尔浓度。
       \task 制得氢气（标准状况）的体积。
-      \task 把生成的硫酸亚铁配制成 \qty{400}{mL} 溶液，这溶液的摩尔浓度是多少。
+      \task 把生成的硫酸亚铁配制成 \qty{400}{ml} 溶液，这溶液的摩尔浓度是多少。
     \end{tasks}
-    \item 在含有硫酸钠和碳酸钠的溶液里，加入足量的氯化钡溶液，生成沉淀 \qty{3.5}{g}。把沉淀另用足量的硝酸溶液处理，放出 \qty{150}{mL} 二氧化碳气体（标准状况）。计算溶液里含硫酸钠和碳酸钠各多少摩尔。
+    \item 在含有硫酸钠和碳酸钠的溶液里，加入足量的氯化钡溶液，生成沉淀 \qty{3.5}{g}。把沉淀另用足量的硝酸溶液处理，放出 \qty{150}{ml} 二氧化碳气体（标准状况）。计算溶液里含硫酸钠和碳酸钠各多少摩尔。
     \item 计算燃烧多少克氢气，生成液态水放出的热量跟燃烧 \qty{1}{kg} 碳，生成二氧化碳所放出的热量相等。
     \item 称取 \qty{1.721}{g} 某种硫酸钙的结晶水合物 $\ce{CaSO4 .x H2O}$， 加热，使它失去全部结晶水。这时候硫酸钙的质量是 \qty{1.721}{g}，计算所含结晶水数（$x$）。
     \item 已知 \ce{KCl} 在 \qty{24}{\celsius} 时的溶解度是 \qty{33.2}{g}，计算 \qty{24}{\celsius} 时 \ce{KCl} 饱和溶液的百分比浓度。这样浓度的 \ce{KCl} 溶液密度为 \qty{1.16}{g/cm^3}，计算它的摩尔浓度。

@@ -1,0 +1,114 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\retortstand}[4][]{
+  \begin{scope}[#1]
+    \draw[fill=darkgray](0,0)--++(#3,0)--++(0.05,-0.05)--++(0,-0.15)--++(-0.4,0)--++(0,0.05)--++(-#2-#3+0.7,0)--++(0,-0.05)--++(-0.4,0)--++(0,0.15)--++(0.05,0.05)--cycle;
+    \draw(-#2-0.05,-0.05)--(#3+0.05,-0.05);
+    \fill[left color=lightgray,right color=lightgray,middle color=white](-0.05,0)rectangle(0.05,#4);
+    \fill[left color=gray,right color=gray,middle color=white](-0.07,0)rectangle(0.07,0.07);
+  \end{scope}
+}
+\newcommand{\beaker}[5][]{
+  \begin{scope}[#1]
+    \fill[#5,rounded corners=1mm](-#2/2,#4)--(-#2/2,0)--(#2/2,0)--(#2/2,#4);
+    \draw[fill=cyan!10!white,fill opacity=0.3](#2/2+0.07,#3)arc(90:180:0.07)[rounded corners=1mm]--(#2/2,0)--(-#2/2,0)[rounded corners=0.5mm]--(-#2/2,#3-0.15)[sharp corners]--++(-0.1,0.1)--(-#2/2,#3)--cycle;
+  \end{scope}
+}
+\newcommand{\rflask}[5][]{
+  \begin{scope}[#1]
+    \fill[#4,fill opacity=0.3](#3:0.5)arc(#3:-#3-180:0.5)--cycle;
+    \fill[#5,fill opacity=0.3](#3:0.5)arc(#3:60:0.5)arc(240:180:0.2)--++(0,0.65)--++(-0.3,0)--++(0,-0.65)arc(0:-60:0.2)arc(120:180-#3:0.5);
+    \draw(60:0.5)arc(60:-240:0.5)arc(-60:0:0.2)--++(0,0.5)coordinate(#2-bl)--++(0,0.1)arc(0:90:0.05)--++(0.4,0)arc(90:180:0.05)--++(0,-0.6)arc(180:240:0.2);
+    % \fill[left color=gray,right color=gray,middle color=white](#2-bl)rectangle++(0.3,0.25);
+    \draw[semithick](-0.2,1.25)--(0.2,1.25);
+  \end{scope}
+}
+\newcommand{\pipette}[2][]{
+  \begin{scope}[#1]
+    \draw[double distance=1pt](0,0)--(#2,0);
+    \draw[line join=round](#2,-0.7pt)--++(0.2,0.5pt)--++(0,0.4pt)--++(-0.2,0.5pt);
+    \fill[brown!50!red](0,0)--++(0,2pt)to(-1pt,1pt)to[out=120,in=90](-5pt,0)to[out=270,in=-120](-1pt,-1pt)to(0,-2pt)--cycle;
+  \end{scope}
+}
+\newcommand{\JointClipC}[3][]{
+  \begin{scope}[#1]
+    \fill[top color=gray,bottom color=gray,middle color=white](-0.2,-0.03)rectangle(#2,0.03);
+    \fill[lightgray](#2,-0.07)rectangle++(#3,0.14);
+    \fill[left color=darkgray,right color=darkgray,middle color=white](-0.1,-0.1)rectangle(0.1,0.1);
+    \draw[line cap=round,very thick](-135:0.07)--(45:0.07);
+    \fill[ball color=black](0,0)circle(1.4pt);
+  \end{scope}
+}
+\newcommand{\AlcoholBurner}[1][]{
+  \begin{scope}[#1]
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+  \end{scope}
+}
+\newcommand{\FlameThick}[2][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](0,0.3)to[bend left=20](-0.25,{0.4-0.25*sin(#2)})to[in=100,out=-80](-0.08,0)--(0.08,0)to[in=-130,out=90](0.3,{0.3+0.3*sin(#2)});
+    \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+\newcommand{\ClipedTube}[4][]{
+  \begin{scope}[#1,rotate=#2]
+    \fill[yellow!50!black](-#3/3*2+0.1,0.15)--(-#3/3*2,0.15)arc(90:270:0.15)--++(0.4,0)to[bend right=10](-#3/3*2+0.1,0.15);
+    \fill[pattern={Dots[distance=0.6pt,radius=0.15pt,angle=40]},pattern color=darkgray](-#3/3*2+0.1,0.15)--(-#3/3*2,0.15)arc(90:270:0.15)--++(0.4,0)to[bend right=10](-#3/3*2+0.1,0.15);
+    \draw[top color=yellow!10!white,bottom color=yellow!50!white,fill opacity=0.4](-#3/3*2,0.15)--(#3/3,0.15)arc(-90:0:0.05)--(#3/3+0.05,-0.2)arc(0:90:0.05)--(-#3/3*2,-0.15)arc(270:90:0.15)--cycle;
+    \draw[fill=darkgray](-0.1,0.15)rectangle(0.1,0.1)(-0.1,-0.15)rectangle(0.1,-0.1);
+    \draw[line width=1pt](-0.07,0.21)--(-0.03,0.17)--(0.03,0.17)--(0.07,0.21);
+  \end{scope}
+}
+\newcommand{\CrucibleTongs}[1][]{
+  \begin{scope}[#1,on background layer]
+    \draw[double distance=0.8pt,rounded corners=1pt](0,0)--++(0.2,0.2)[sharp corners]--++(0.5,0)to[bend left=40]++(0.2,0)--++(0.3,0)--++(0.2,-0.05)--++(1.0,0)to[out=-80,in=-80]++(-0.3,0);
+  \end{scope}
+  \begin{scope}[#1]
+    \draw[double distance=0.8pt,rounded corners=1pt](0,-0.05)--++(0.2,0.2)[sharp corners]--++(0.5,0)to[bend right=40]++(0.2,0)--++(0.3,0)--++(0.2,0.05)--++(1.0,0)to[out=80,in=80]++(-0.3,0);
+  \end{scope}
+}
+\newcommand{\BottleEmpty}[1][]{
+  \begin{scope}[#1]
+    \fill[left color=gray,right color=gray,middle color=white](-0.3,2.3)rectangle(0.3,2.7);
+    \draw[fill=cyan!10!white,fill opacity=0.2](-0.3,2.5)[rounded corners=1pt]--++(0,-0.3)arc(90:180:0.4)[rounded corners=5pt]--(-0.7,0)--(0.7,0)[sharp corners]--(0.7,1.8)[rounded corners=1pt]arc(0:90:0.4)[sharp corners]--++(0,0.3)arc(180:90:0.05)--(-0.35,2.55)arc(90:0:0.05)--cycle;
+  \end{scope}
+}
+\newcommand{\Bottle}[3][]{
+  \begin{scope}[#1]
+    \fill[left color=gray,right color=gray,middle color=white](-0.3,2.3)rectangle(0.3,2.7);
+    \fill[#3,fill opacity=0.3,rounded corners=5pt](-0.7,#2)--(-0.7,0)--(0.7,0)--(0.7,#2);
+    \draw[fill=cyan!10!white,fill opacity=0.2](-0.3,2.5)[rounded corners=1pt]--++(0,-0.3)arc(90:180:0.4)[rounded corners=5pt]--(-0.7,0)--(0.7,0)[sharp corners]--(0.7,1.8)[rounded corners=1pt]arc(0:90:0.4)[sharp corners]--++(0,0.3)arc(180:90:0.05)--(-0.35,2.55)arc(90:0:0.05)--cycle;
+  \end{scope}
+}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.0,inner sep=2pt]
+  \draw[double distance=1pt,rounded corners=5pt](-7,3)--(-6.2,3)--(-6.2,0.35);
+  \draw[double distance=1pt,rounded corners=5pt](-3.2,0.35)--(-3.2,3)--(-5.8,3)--(-5.8,2.2);
+  \draw[double distance=1pt,rounded corners=5pt](-2.8,2.2)--(-2.8,3)--(-0.2,3)--(-0.2,0.2);
+  \draw[very thin] (-0.1,0.15)circle(1pt)(-0.3,0.25)circle(1pt)(0,0.4)circle(1pt);
+  \draw[fill=blue!20](-2.6,0.5)--(-2.3,0.5)parabola bend (-2.5,0) (-2.6,0.125)--(-2.9,0.125)parabola bend (-2.8,0) (-2.6,0.5);
+  \draw[fill=blue!20](-2.9,0.125)parabola [bend at end] (-2.8,0)--(-2.5,0)parabola[bend at start](-2.6,0.125);
+  \draw[fill=blue!70](-5.6,0.5)--(-5.3,0.5)parabola bend (-5.5,0) (-5.6,0.125)--(-5.9,0.125)parabola bend (-5.8,0) (-5.6,0.5);
+  \draw[fill=blue!70](-5.9,0.125)parabola [bend at end] (-5.8,0)--(-5.5,0)parabola[bend at start](-5.6,0.125);
+  \beaker{1.0}{1.2}{0.6}{cyan!50!white,fill opacity=0.3}
+  \Bottle[xshift=-3cm]{0.3}{cyan!30!white}
+  \BottleEmpty[xshift=-6cm]
+  \draw[very thick](3,0)--(-8,0);
+  \draw[very thin](0.2,0.35)--++(15:0.5)node[right]{氢氧化钠溶液};
+  \draw[very thin](-2.35,0.15)--++(15:0.5)node[right]{\ce{H2O}};
+  \draw[very thin,->](-8,3)--++(0:0.9)node[midway,above]{\ce{Cl2}};
+  \draw[very thin](-2.4,0.4)--++(25:0.5)node[right]{a};
+  \draw[very thin](-5.4,0.4)--++(25:0.5)node[right]{b};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,mhchem}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes,}
+\tikzset{
+  co2/.pic={
+    \draw [fill] (0,0)circle(1.4pt);
+    \draw(-0.1,0)circle(1.1pt)(0.1,0)circle(1.1pt);
+  }
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.2]
+  \draw[densely dashed,very thin] (0,0,0)--(0,0,2);
+  \draw[densely dashed,very thin] (0,0,0)--(0,2,0);
+  \draw[densely dashed,very thin] (0,0,0)--(2,0,0);
+  \draw[densely dashed,very thin] (0,0,0)--(0,2,2);
+  \draw[densely dashed,very thin] (0,0,0)--(2,0,2);
+  \draw[densely dashed,very thin] (2,2,0)--(0,0,0);
+  \draw[densely dashed,very thin] (0,2,0)--(0,0,2);
+  \draw[densely dashed,very thin] (2,0,0)--(0,0,2);
+  \draw[densely dashed,very thin] (2,0,0)--(0,2,0);
+  \draw[very thin] (2,0,2)--(0,2,2);
+  \draw[very thin] (2,2,0)--(0,2,2);
+  \draw[very thin] (0,2,0)--(2,2,2);
+  \draw[very thin] (2,2,0)--(2,0,2);
+  \draw[very thin] (2,2,2)--(2,0,0);
+  \draw[very thin] (2,2,2)--(0,0,2);
+  \draw[] (0,2,0)--(0,2,2);
+  \draw[] (0,2,0)--(2,2,0);
+  \draw[] (2,2,0)--(2,2,2);
+  \draw[] (2,0,0)--(2,0,2);
+  \draw[] (2,0,0)--(2,2,0);
+  \draw[] (0,2,2)--(2,2,2);
+  \draw[] (0,2,2)--(0,0,2);
+  \draw[] (2,0,2)--(0,0,2);
+  \draw[] (2,0,2)--(2,2,2);
+  \foreach \x/\y/\z in {
+    0/0/0,
+    0/2/0,
+    0/2/2,
+    0/0/2,
+    2/0/0,
+    2/2/0,
+    2/2/2,
+    2/0/2,
+    0/1/1,
+    2/1/1,
+    1/1/0,
+    1/1/2,
+    1/2/1,
+    1/0/1
+  }
+  {
+    \pic at (\x,\y,\z)[rotate=20]{co2};
+  }
+  \draw [fill] ( 0.5,-0.3,2 )  circle (1.4pt)node[right=5pt]{代表 \ce{CO2} 一个分子};
+  \draw(0.4,-0.3,2)circle(1.1pt)(0.6,-0.3,2)circle(1.1pt);
+\end{tikzpicture}
+\end{document}

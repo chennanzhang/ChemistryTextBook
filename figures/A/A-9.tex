@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\EmptyTube}[3][]{
+  \begin{scope}[#1,rotate=#2]
+    \draw[very thin,fill=lightgray!10](-0.061, 0.133)to[bend right](-0.123, 0.108)to[bend right](-0.168, 0.063)to[bend right](-0.186, 0.015)to[bend right](-0.180,-0.053)to[bend right](-0.116,-0.089)to[bend right](-0.097,-0.131)to[bend right](-0.036,-0.144)to[bend right]( 0.039,-0.163)to[bend right]( 0.091,-0.137)to[bend right]( 0.133,-0.101)to[bend right]( 0.149,-0.022)to[bend right]( 0.135, 0.022)to[bend right]( 0.140, 0.080)to[bend right]( 0.093, 0.129)to[bend right]( 0.060, 0.167)to[bend right](-0.061, 0.133);
+    \draw[fill=cyan!10!white,fill opacity=0.4](-#3,0.15)--(0,0.15)arc(-90:0:0.05)--(0.05,-0.2)arc(0:90:0.05)--(-#3,-0.15)arc(270:90:0.15)--cycle;
+    \draw[very thin](-0.083, 0.077)to[bend right](-0.116, 0.042)
+(-0.141,-0.028)to[bend right](-0.094,-0.063)
+(-0.041,-0.092)to[bend right](-0.012,-0.123)to[bend right]( 0.021,-0.115)
+( 0.104,-0.016)to[bend right]( 0.103,-0.066)
+( 0.053, 0.104)to[bend left]( 0.099, 0.078)to[bend left]( 0.110, 0.032)
+(-0.042, 0.072)to[bend left](-0.008, 0.104)to[bend left]( 0.036, 0.077);
+  \end{scope}
+}
+\newcommand{\Pflask}[2][]{
+  \begin{scope}[#1]
+    \draw[fill=cyan!20!white,fill opacity=0.2](60:0.5)arc(60:-70:0.5)--(-110:0.5)arc(-110:-240:0.5)arc(-60:0:0.2)--++(0,0.5)coordinate(bl)--++(0,0.1)arc(0:90:0.05)--++(0.4,0)arc(90:180:0.05)--++(0,-0.6)arc(180:240:0.2);
+    \fill[left color=gray,right color=gray,middle color=white](bl)rectangle++(0.3,0.25);
+    \draw[semithick](-0.2,1.25)--(0.2,1.25);
+  \end{scope}
+}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.5,inner sep=2pt]
+  \draw[double distance=1.5pt,rounded corners=4pt](0,1.05)|-++(2,0.6)--(2,-0.3);
+  \Pflask{0}
+  \EmptyTube[xshift=2cm,yshift=1.2cm]{90}{1.5}
+\end{tikzpicture}
+\end{document}

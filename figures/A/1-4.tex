@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \begin{scope}[rotate=185]
+    \fill[ball color=gray](-2pt,0)circle(2pt);
+    \fill[ball color=white](2pt,0)circle(2pt);
+    \foreach \l[count=\i from 0] in {0.5,0.4,0.3,0.4,0.5}
+    {
+      \draw[very thin](-4.2pt,-1.6pt+\i*0.8pt)--++(-\l,0);
+    }
+  \end{scope}
+  \begin{scope}[xshift=2cm,yshift=1cm,rotate=25]
+    \fill[ball color=gray](-2pt,0)circle(2pt);
+    \fill[ball color=white](2pt,0)circle(2pt);
+    \foreach \l[count=\i from 0] in {0.5,0.4,0.3,0.4,0.5}
+    {
+      \draw[very thin](-4.2pt,-1.6pt+\i*0.8pt)--++(-\l,0);
+    }
+  \end{scope}
+  \begin{scope}[xshift=-2cm,yshift=1.2cm,rotate=75]
+    \fill[ball color=gray](-2pt,0)circle(2pt);
+    \fill[ball color=white](2pt,0)circle(2pt);
+    \foreach \l[count=\i from 0] in {0.5,0.4,0.3,0.4,0.5}
+    {
+      \draw[very thin](-4.2pt,-1.6pt+\i*0.8pt)--++(-\l,0);
+    }
+  \end{scope}
+  \begin{scope}[xshift=-1cm,yshift=-2cm,rotate=265]
+    \fill[ball color=gray](-2pt,0)circle(2pt);
+    \fill[ball color=white](2pt,0)circle(2pt);
+    \foreach \l[count=\i from 0] in {0.5,0.4,0.3,0.4,0.5}
+    {
+      \draw[very thin](-4.2pt,-1.6pt+\i*0.8pt)--++(-\l,0);
+    }
+  \end{scope}
+  \begin{scope}[xshift=2cm,yshift=-2.1cm,rotate=-40]
+    \fill[ball color=gray](-2pt,0)circle(2pt);
+    \fill[ball color=white](2pt,0)circle(2pt);
+    \foreach \l[count=\i from 0] in {0.5,0.4,0.3,0.4,0.5}
+    {
+      \draw[very thin](-4.2pt,-1.6pt+\i*0.8pt)--++(-\l,0);
+    }
+  \end{scope}
+\end{tikzpicture}
+\end{document}

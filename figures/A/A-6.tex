@@ -1,0 +1,82 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\SeparatoryFunnel}[1][]{
+  \begin{scope}[#1,rotate=-160]
+    \draw[ball color=cyan!20!white](0,1.45)circle(0.05);
+    \draw[fill=cyan!20!white](-0.05,1.34)rectangle(0.05,1.44);
+    \draw[fill=cyan!10!white](-0.1,1.40)rectangle(0.1,1.42);
+    \fill[orange,fill opacity=0.5](110:0.65)--(110:0.95)--(70:0.75)--(70:0.5);
+    \fill[cyan!30!white,fill opacity=0.5](110:0.95)--(110:1)to[out=110,in=180](-0.06,1.3)|-(0.06,1.4)--(0.06,1.3)to[out=0,in=70](70:1)--(70:{0.75});
+    \draw(0,0)--(110:1)to[out=110,in=180](-0.06,1.3)|-(0.06,1.4)--(0.06,1.3)to[out=0,in=70](70:1)--cycle;
+    \draw[double distance=1.7pt](0,0.08)--(0,-1.0);
+    \draw(0.8pt,-1.0)--++(0,-0.2)--++(-1.6pt,0.2);
+    \draw[thick,gray,line cap=round](-0.09,0.04)--(0.09,0.04)(0.09,0.06)--(0.09,0.02);
+    \fill[cyan!30!lightgray,opacity=0.8](-0.06,0.08)rectangle(0.06,0);
+  \end{scope}
+}
+\newcommand{\handright}[1][]{
+  \begin{scope}[#1]
+    \draw[very thin,fill=pink!10!orange!10]
+(0.454,0.152)..controls(0.449,0.173)and(0.453,0.186)..
+(0.456,0.197)..controls(0.445,0.215)and(0.440,0.240)..
+(0.446,0.250)..controls(0.448,0.254)and(0.460,0.251)..
+(0.483,0.214)..controls(0.498,0.187)and(0.493,0.149)..(0.477,0.128);
+\fill[fill=pink!10!orange!10]
+(0.302,0.096)..controls(0.334,0.167)and(0.372,0.191)..
+(0.404,0.205)..controls(0.449,0.238)and(0.463,0.222)..
+(0.454,0.207)..controls(0.430,0.174)and(0.389,0.145)..
+(0.389,0.137)..controls(0.399,0.134)and(0.439,0.153)..
+(0.454,0.152)..controls(0.466,0.160)and(0.474,0.157)..
+(0.477,0.128)..controls(0.446,0.095)and(0.396,0.064)..(0.337,0.030);
+\draw[very thin]
+(0.302,0.096)..controls(0.334,0.167)and(0.372,0.191)..
+(0.404,0.205)..controls(0.449,0.238)and(0.463,0.222)..
+(0.454,0.207)..controls(0.430,0.174)and(0.389,0.145)..
+(0.389,0.137)..controls(0.399,0.134)and(0.439,0.153)..
+(0.454,0.152)%..controls(0.466,0.160)and(0.474,0.157)..
+(0.477,0.128)..controls(0.446,0.095)and(0.396,0.064)..(0.337,0.030);
+\draw[very thin](0.429,0.215)..controls(0.427,0.206)and(0.433,0.199)..(0.444,0.201)
+(0.415,0.140)..controls(0.424,0.136)and(0.433,0.131)..(0.436,0.121)
+(0.397,0.195)..controls(0.406,0.189)and(0.408,0.180)..(0.408,0.174)
+(0.456,0.186)..controls(0.460,0.193)and(0.469,0.197)..(0.477,0.197);
+  \end{scope}
+}
+\newcommand{\handleft}[1][]{
+  \begin{scope}[#1,on background layer]
+    \draw[very thin,fill=pink!10!orange!10]
+    (0.142,0.568)..controls(0.163,0.599)and(0.140,0.635)..
+(0.163,0.681)..controls(0.174,0.724)and(0.179,0.710)..
+(0.241,0.721)..controls(0.262,0.728)and(0.270,0.723)..
+(0.273,0.714)..controls(0.272,0.699)and(0.269,0.695)..
+(0.259,0.696)..controls(0.226,0.672)and(0.203,0.668)..
+(0.189,0.669)..controls(0.202,0.652)and(0.194,0.615)..(0.224,0.573);
+  \end{scope}
+  \begin{scope}[#1]
+    \draw[very thin,fill=pink!10!orange!10]
+    (0.273,0.714)..controls(0.279,0.694)and(0.291,0.692)..
+(0.295,0.680)..controls(0.302,0.666)and(0.280,0.594)..
+(0.263,0.591)..controls(0.254,0.596)and(0.255,0.614)..
+(0.263,0.638)..controls(0.268,0.656)and(0.265,0.677)..(0.259,0.696)
+(0.184,0.616)..controls(0.192,0.643)and(0.227,0.666)..
+(0.246,0.687)..controls(0.254,0.695)and(0.268,0.696)..
+(0.264,0.668)..controls(0.255,0.642)and(0.229,0.643)..
+(0.238,0.610)..controls(0.255,0.554)and(0.212,0.559)..(0.212,0.515);
+\draw[very thin](0.239,0.676)..controls(0.238,0.667)and(0.246,0.662)..(0.259,0.670)
+(0.260,0.611)..controls(0.271,0.625)and(0.281,0.623)..(0.279,0.611);
+  \end{scope}
+}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.2,inner sep=2pt]
+  % \SeparatoryFunnel[rotate=-160]{1.0}{0.65}{cyan!30!white}{0.95}{orange}
+  \SeparatoryFunnel[scale=1.2]
+  \handright[xshift=-0.77cm,yshift=-2.15cm,scale=3.2]
+  \handleft[xshift=-0.75cm,yshift=-2.2cm,scale=3.2]
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass[colortheme=green,txconfig=txchemistry.cfg]{textbook}
+\stylesetup{ 
+  % fullwidth-stop = catcode,
+  boldemph = false,
+}
+\Booksetup{
+  BookSeries  = 中学经典教材丛书, 
+  BookTitle   = 高中化学（甲种本）,
+  BookTitle*  = {Textbook for Middle School Chemistry},
+  SubTitle    = 第三册,
+  SubTitle*   = Volume III,
+  BriefIntro    = 
+    { 
+      本书是根据教育部 1983 年 11 月颁发的高中化学教学纲要（草案）中的较高要求内容部分, 在人民教育出版社化学室编的六年制重点中学高中课本（试用本）《化学》第三册的基础上编写修改而成的。教育部《关于颁发高中数学、物理、化学三科两种要求的教学纲要的通知》规定, 首批办好的重点中学, 可按较高要求的教学纲要进行教学, 其它三年制高中, 可根据学校的实际情况自行确定。因此, 本书可供三年制高中二年级选用。参加本书编写和修改工作的有许国培、程名荣、冷燕平等。北京师范大学化学系何少华也参加了编写修改工作。责任编辑是程名荣, 审定者是武永兴、梁英豪。希望广大教师和研究中学化学教学的同志提出批评和修改意见。
+    },
+  DedicatedTo   = 奔赴高考的莘莘学子,
+  CoverGraph    = graphics/C.pdf,
+  AuthorList    = {人民教育出版社化学室},
+  ReleaseDate   = 2026-02-13,
+  % Url           = https://www.tjad.cn,
+  % ISBN          = 978-7-302-11622-6,
+  % Publisher     = 同济极客出版社,
+  % Logo          = graphics/logo.pdf,
+  % Editor        = {张晨南},
+  WrittenStyle  = 编,
+}
+\graphicspath{{figures/C/}}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+\frontmatter
+\tableofcontents
+\mainmatter
+\input{contents/3-1.tex} % ok
+\input{contents/3-2.tex} % ok
+\input{contents/3-3.tex} % ok
+\input{contents/3-4.tex} % ok
+\input{contents/3-5.tex} % ok
+\input{contents/app3-1.tex} % ok
+\appendix
+\input{contents/app3-2.tex} % ok
+\end{document}

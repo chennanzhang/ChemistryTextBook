@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{chemmacros,siunitx}
+\usetikzlibrary{patterns, calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\AlcoholBurner}[1][]{
+  \begin{scope}[#1]
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+  \end{scope}
+}
+\newcommand{\FlameThin}[1][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](-0.1,0.3)to[in=100,out=-120](-0.08,0)--(0.08,0)to[in=-70,out=50](0.1,0.3);
+    \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+\newcommand{\FlameUp}[2][]{
+  \begin{scope}[#1]
+    \fill[top color=#2,bottom color=red,middle color=#2!90!orange](-0.1,0)--(0.1,0)to[in=-110,out=110](0.09,0.4)to[bend right](0.05,0.35)to[bend left](0.03,0.45)to[bend right](0,0.4)to[bend left](-0.02,0.52)to[bend right](-0.07,0.35)to[bend right](-0.15,0.4)to[in=70,out=-80](-0.1,0);
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=2.0]
+  \fill[brown!80!black](-0.5,0)rectangle(0.5,-0.2);
+  \AlcoholBurner
+  \FlameThin[yshift=7.2mm]
+  \FlameUp[yshift=10.2mm]{yellow}
+  \draw[gray,thick](0,1.1)ellipse(0.05 and 0.03);
+  \draw[semithick](0.05,1.1)--++(0.45,0);
+  \draw[top color=brown,bottom color=brown,middle color=white](0.5,1.1-0.03)rectangle++(1.0,0.06);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=0.95]
+  \begin{scope}[inner sep=1pt]
+    \draw[rounded corners=1pt,fill=cyan!15!white](-0.42,3.2)--(-0.38,2.6)--(0.38,2.6)--(0.42,3.2);
+    \draw[fill=cyan!15!white](-0.45,3.2)--(-0.45,3.25)to[bend left=5](0.45,3.25)--(0.45,3.2)--cycle;
+    \draw[rounded corners=3pt,fill=cyan!40!white]
+    (-1,0.18)--(-1,0)--(1,0)--(1,0.18);
+    \draw[rounded corners=3pt,fill=cyan!10!white,fill opacity=0.5](-0.4,2.9)--(-0.4,2.5)--(-1,2.3)--(-1,0)--(1,0)--(1,2.3)--(0.4,2.5)--(0.4,2.9);
+    \draw[rounded corners=1pt,fill=cyan!10!white](-0.45,2.9)rectangle(0.45,2.97);
+    \node at (0,1.9){\num{6.02e23}};
+    \node at (0,0.18)[above]{\qty{18}{g}};
+    \node at (0,0)[below]{\qty{1}{mol} 水};
+    \node at (0,1.5){分子};
+  \end{scope}
+  \begin{scope}[inner sep=1pt,xshift=4cm]
+    \draw[rounded corners=1pt,fill=cyan!15!white](-0.42,3.2)--(-0.38,2.6)--(0.38,2.6)--(0.42,3.2);
+    \draw[fill=cyan!15!white](-0.45,3.2)--(-0.45,3.25)to[bend left=5](0.45,3.25)--(0.45,3.2)--cycle;
+    \draw[rounded corners=3pt,fill=cyan!40!white]
+    (-1,0.54)--(-1,0)--(1,0)--(1,0.54);
+    \draw[rounded corners=3pt,fill=cyan!10!white,fill opacity=0.5](-0.4,2.9)--(-0.4,2.5)--(-1,2.3)--(-1,0)--(1,0)--(1,2.3)--(0.4,2.5)--(0.4,2.9);
+    \draw[rounded corners=1pt,fill=cyan!10!white](-0.45,2.9)rectangle(0.45,2.97);
+    \node at (0,1.9){\num{6.02e23}};
+    \node at (0,0.54)[above]{\qty{98}{g}};
+    \node at (0,0)[below]{\qty{1}{mol} 硫酸};
+    \node at (0,1.5){分子};
+  \end{scope}
+  \begin{scope}[inner sep=1pt,xshift=8cm]
+    \draw[rounded corners=1pt,fill=cyan!15!white](-0.42,3.2)--(-0.38,2.6)--(0.38,2.6)--(0.42,3.2);
+    \draw[fill=cyan!15!white](-0.45,3.2)--(-0.45,3.25)to[bend left=5](0.45,3.25)--(0.45,3.2)--cycle;
+    \draw[rounded corners=3pt,pattern=crosshatch dots]
+    (-1,2.15)--(-1,0)--(1,0)--(1,2.15);
+    \draw[rounded corners=3pt,fill=cyan!10!white,fill opacity=0.5](-0.4,2.9)--(-0.4,2.5)--(-1,2.3)--(-1,0)--(1,0)--(1,2.3)--(0.4,2.5)--(0.4,2.9);
+    \draw[rounded corners=1pt,fill=cyan!10!white](-0.45,2.9)rectangle(0.45,2.97);
+    \node at (0,1.9)[fill=cyan!5!white]{\num{6.02e23}};
+    \node at (0,0.8)[fill=cyan!5!white,above]{\qty{342}{g}};
+    \node at (0,0) [below]{\qty{1}{mol} 蔗糖};
+    \node at (0,1.5)[fill=cyan!5!white]{分子};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

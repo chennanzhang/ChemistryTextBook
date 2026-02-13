@@ -1,0 +1,30 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.0]
+  \begin{scope}
+    \draw[ultra thin](-0.15,2.2)--(0.15,2.2)node[right]{刻度};
+    \draw[rounded corners](0.15,3.0)--(0.15,1.2)[sharp corners]..controls(1,0.3)and(1.1,-0.6)..(290:1)--(250:1)[rounded corners=3pt]..controls(-1.1,-0.6)and(-1,0.3)..(-0.15,1.2)--(-0.15,3.0);
+    \draw[fill=cyan!20!white](-0.14,2.8)rectangle(0.14,3.0);
+    \draw[ball color=cyan!20!white](0,3.1)circle(0.1);
+    \draw[fill=cyan!10!white](-0.2,3.05)rectangle(0.2,3.0);
+    \node at(0,0)[above]{\qty{1000}{ml}};
+    \node at(0,0)[below]{\qty{20}{\celsius}};
+  \end{scope}
+  \begin{scope}[xshift=2.5cm]
+    \fill[rounded corners,cyan!40!white,fill opacity=0.3](0.15,2.25)--(0.15,1.2)[sharp corners]..controls(1,0.3)and(1.1,-0.6)..(290:1)--(250:1)[rounded corners=3pt]..controls(-1.1,-0.6)and(-1,0.3)..(-0.15,1.2)[sharp corners]--(-0.15,2.25)to[bend right](0.15,2.25);
+    \draw[ultra thin](-0.15,2.2)--(0.15,2.2);
+    \draw[rounded corners](0.15,3.0)--(0.15,1.2)[sharp corners]..controls(1,0.3)and(1.1,-0.6)..(290:1)--(250:1)[rounded corners=3pt]..controls(-1.1,-0.6)and(-1,0.3)..(-0.15,1.2)--(-0.15,3.0);
+    \draw[fill=cyan!20!white](-0.14,2.8)rectangle(0.14,3.0);
+    \draw[ball color=cyan!20!white](0,3.1)circle(0.1);
+    \draw[fill=cyan!10!white](-0.2,3.05)rectangle(0.2,3.0);
+    \node at(0,0)[above]{\qty{1000}{ml}};
+    \node at(0,0)[below]{\qty{20}{\celsius}};
+  \end{scope}
+\end{tikzpicture}
+\end{document}

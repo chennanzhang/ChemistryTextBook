@@ -1,0 +1,65 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\retortstand}[4][]{
+  \begin{scope}[#1]
+    \draw[fill=darkgray](0,0)--++(#3,0)--++(0.05,-0.05)--++(0,-0.15)--++(-0.4,0)--++(0,0.05)--++(-#2-#3+0.7,0)--++(0,-0.05)--++(-0.4,0)--++(0,0.15)--++(0.05,0.05)--cycle;
+    \draw(-#2-0.05,-0.05)--(#3+0.05,-0.05);
+    \fill[left color=lightgray,right color=lightgray,middle color=white](-0.05,0)rectangle(0.05,#4);
+    \fill[left color=gray,right color=gray,middle color=white](-0.07,0)rectangle(0.07,0.07);
+  \end{scope}
+}
+\newcommand{\AlcoholBurner}[1][]{
+  \begin{scope}[#1]
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+  \end{scope}
+}
+\newcommand{\FlameThick}[2][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](-0.3,{0.3-0.3*sin(#2)})to[in=100,out=-80](-0.08,0)--(0.08,0)to[in=-110,out=70](0.3,{0.3+0.3*sin(#2)});
+    \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+
+\newcommand{\Flame}[1][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](0,0.45)to[in=130,out=-120](-0.06,0)--(0.06,0)to[in=-70,out=50](0,0.45);
+    \fill[top color=red!70!orange,bottom color=orange!70](0,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+
+\newcommand{\JointClipC}[3][]{
+  \begin{scope}[#1]
+    \fill[top color=gray,bottom color=gray,middle color=white](-0.2,-0.03)rectangle(#2,0.03);
+    \fill[gray](#2+0.1,-0.02)rectangle++(#3,0.04);
+    \draw[line width=0.3mm](#2+0.3,-0.03)--++(-0.27,0)arc(270:90:0.03)--++(0.27,0);
+    \fill[left color=darkgray,right color=darkgray,middle color=white](-0.1,-0.1)rectangle(0.1,0.1);
+    \draw[line cap=round,very thick](-135:0.07)--(45:0.07);
+    \fill[ball color=black](0,0)circle(1.4pt);
+    \draw[line width=1pt](#2+0.13,0.09)--++(0.04,-0.04)--++(0.06,0)--++(0.04,0.04);
+    \draw[line width=1pt](#2+0.2,0.03)--++(0,0.1);
+  \end{scope}
+}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.2,inner sep=2pt]
+  \retortstand{0.5}{2}{3.5}
+  \AlcoholBurner[xshift=3cm,yshift=1.0cm]
+  \FlameThick[xshift=3cm,yshift=1.72cm]{0}
+  \draw(1.45,2.05)to[bend left=40](1.55,2.05);
+  \Flame[xshift=1.5cm,yshift=2.08cm]
+  \JointClipC[yshift=2.03cm]{0.5}{2.7}
+  \fill[brown!80!black](2.5,1.0)rectangle(3.5,-0.2);
+  \fill[pattern={Dots[radius=0.2pt,angle=45,distance=0.6pt]},pattern color=red!50!black](2.75,2.05)to[bend left](3.25,2.05);
+\end{tikzpicture}
+\end{document}

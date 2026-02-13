@@ -1,0 +1,17 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{decorations.pathreplacing}
+\begin{document}
+\small
+\begin{tikzpicture}
+  \useasboundingbox(-2,-2)rectangle(2,2);
+  \fill[cyan!20!white,fill opacity=0.3,rounded corners=5pt](-1.8,-0.2)|-(1.8,-0.4)--(1.8,-0.2);
+  \draw[rounded corners=5pt](-1.8,0)|-(1.8,-0.4)--(1.8,0);
+  \draw[semithick](-2,0)--(2,0);
+  \draw(0,0)to[out=0,in=170](0.2,-0.3)to[out=-10,in=182](1.7,-0.35);
+  \draw(0.08,0)to[out=0,in=170](0.25,-0.25)to[out=-10,in=182](1.7,-0.3)--(1.7,-0.35);
+\end{tikzpicture}
+\end{document}

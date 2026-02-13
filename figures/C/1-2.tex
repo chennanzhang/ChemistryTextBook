@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+% \small
+\begin{tikzpicture}[scale=0.6]
+  \node at (0,0) {\ce{Cu^2+}};
+  \node at (2.8,0) {\ce{SO4^2-}};
+  \node at (1,1) {\ce{NH3}};
+  \node at (-1,1) {\ce{NH3}};
+  \node at (1,-1) {\ce{NH3}};
+  \node at (-1,-1) {\ce{NH3}};
+  \draw[densely dashed](-1.7,-1.4)rectangle(1.7,1.4);
+  \node at (0,-1.4)[below]{内界};
+  \node at (2.8,-1.4)[below]{外界};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.5,>=stealth]
+    \draw(0,0)rectangle(2,2);
+    \draw(0,2)--++(45:1)--++(2,0)--++(0,-2)--++(45:-1);
+    \draw(2,2)--++(45:1);
+    \draw[densely dashed](0,0)--(45:1)--++(2,0)(45:1)--++(0,2);
+    \node at (1,1)[above]{\qty{22.4}{L}};
+    \node at (1,1)[below]{（标准状况）};
+    \draw[very thin]([xshift=2.1cm]45:1)--++(0.5,0)([xshift=2.1cm,yshift=2cm]45:1)--++(0.5,0);
+    \draw[very thin,<->]([xshift=2.4cm]45:1)--++(0,2)node[midway,sloped,above]{\qty{0.282}{m}};
+    \node at ([shift=(45:0.5)]2,1)[rotate=45]{\scriptsize \num{6.02e23}};
+    \node at ([shift=(45:0.65)]2,0.7)[rotate=45]{\scriptsize 分子};
+\end{tikzpicture}
+\end{document}

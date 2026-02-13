@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{ctex}
+\pagestyle{empty}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{siunitx,chemmacros,chemfig}
+\setchemfig{bond offset = 0pt}
+\chemsetup[orbital]{
+  overlay,
+  opacity=0.5,
+  sp/scale=2.5,
+  s/color=blue!50,
+  s/scale=1.8
+}
+\begin{document}
+\small
+\begin{tikzpicture}
+  \draw(-3.5,-1.5)--(2.5,-1.5)--(3.5,1.5)--(-2.5,1.5)--cycle;
+  % \draw[very thin](0,0)--(0,1.5)(0,0)--(-19.5:1.5);
+  \node {
+  \chemfig{
+    \orbital{s}
+    -[:15,1.4]{\orbital[angle=195]{sp}}
+    {\orbital[angle=150,,,,scale=1.5]{sp}}
+    {\orbital[angle=0]{sp}}
+    (-[:150,0.9,,,scale=0.2]\orbital{s})
+    (-[:0,2.2]{\orbital[angle=180]{sp}})
+    (-[:0,2.2]{\orbital[angle=15]{sp}}-[:15,1.4,,,scale=0.2]\orbital{s})
+    (-[:0,2.2]{\orbital[angle=-30,,,scale=1.5]{sp}}-[:-30,0.9,,,scale=0.2]\orbital{s})
+    % (-{\orbital[angle=30]{sp}})
+    % (-[:240,1.4,,,draw=none]\orbital{s})(-[:90,1.4,,,draw=none]\orbital{s})-[:-19.5,1.4,,,draw=none]\orbital{s}
+    }
+  };
+% \draw[very thin](0,0.5)arc(90:-19.5:0.5)node[midway,above right]{\ang{109;28;}};
+\end{tikzpicture}
+\end{document}

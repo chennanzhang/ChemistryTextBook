@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex,siunitx}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{tkz-euclide}
+\usepackage{amsmath,mhchem}
+\usetikzlibrary{patterns,calc,patterns.meta}
+\usetikzlibrary{decorations.pathmorphing,decorations.pathreplacing, decorations.shapes}
+\begin{document}
+\small
+\begin{tikzpicture}[>=latex,scale=1.0]
+  \draw[fill=gray,rounded corners](2.0,2.3)--(1.9,2.8)[rounded corners=1.5pt]--(2.2,2.4)--cycle;
+  \begin{scope}
+  \draw[double,double distance=2pt,rounded corners=6pt](0,1.7)--(0,2.6)--(2,2.6);
+  \draw[left color=brown,right color=brown,middle color=lightgray](-0.18,1.8)--(-0.22,2.2)--(0.22,2.2)--(0.18,1.8)--cycle;
+  \draw[black,fill=brown!80!red,fill opacity=0.3](0,2.0)--(-0.25,2.0)arc(90:0:0.05)--(-0.2,1)..controls(-0.2,0.9)and(-0.2,0.7785)..(110:0.8)arc(110:430:0.8)..controls(0.2,0.7785)and(0.2,0.9)..(0.2,1)--(0.2,1.95)arc(180:90:0.05)--cycle;
+  \fill[cyan!30,fill opacity=0.2,rounded corners=5pt](-1.1,1.1)--(-1.1,-1.2)--(1.1,-1.2)[sharp corners]--(1.1,1.1)--cycle;
+  \draw[rounded corners=5pt](-1.1,1.3)--(-1.1,-1.2)--(1.1,-1.2)[sharp corners]--(1.1,1.3)arc(180:90:0.1)--(-1.2,1.4)arc(90:0:0.1);
+  \draw[very thin](0.8,-0.5)--++(0.7,0)node[right]{热水};
+  \end{scope}
+  \begin{scope}[xshift=4cm]
+  \draw[lightgray,fill=cyan!20!white](-0.954, 0.350)--(-0.857, 0.464)--(-0.661, 0.436)--(-0.723, 0.284)--(-0.865, 0.214)--cycle
+(-0.772, 0.724)--(-0.621, 0.842)--(-0.425, 0.813)--(-0.527, 0.606)--(-0.629, 0.592)--cycle
+(-0.943, 1.042)--(-0.846, 1.157)--(-0.650, 1.128)--(-0.649, 0.935)--(-0.854, 0.906)--cycle
+(-0.289, 1.008)--(-0.123, 1.249)--( 0.069, 1.169)--( 0.233, 0.888)--(-0.018, 0.691)--(-0.217, 0.804)--cycle
+( 0.301, 1.069)--( 0.451, 1.212)--( 0.643, 1.132)--( 0.663, 0.986)--( 0.535, 0.885)--( 0.398, 0.876)--cycle
+( 0.680, 0.881)--( 0.830, 1.023)--( 1.022, 0.944)--( 1.042, 0.798)--( 0.914, 0.697)--( 0.777, 0.688)--cycle
+( 0.672, 0.422)--( 0.769, 0.537)--( 0.965, 0.508)--( 0.989, 0.242)--( 0.700, 0.229)--cycle
+( 0.595,-0.007)--( 0.627, 0.167)--( 0.942, 0.089)--( 0.888,-0.114)--( 0.708,-0.181)--cycle;
+  \draw[double,double distance=2pt,rounded corners=6pt](0,1.7)--(0,2.6)--(-2,2.6);
+  \draw[left color=brown,right color=brown,middle color=lightgray](-0.18,1.8)--(-0.22,2.2)--(0.22,2.2)--(0.18,1.8)--cycle;
+  \draw[black,fill=cyan!5,fill opacity=0.3](0,2.0)--(-0.25,2.0)arc(90:0:0.05)--(-0.2,1)..controls(-0.2,0.9)and(-0.2,0.7785)..(110:0.8)arc(110:430:0.8)..controls(0.2,0.7785)and(0.2,0.9)..(0.2,1)--(0.2,1.95)arc(180:90:0.05)--cycle;
+  \fill[cyan!30,fill opacity=0.2,rounded corners=5pt](-1.1,1.1)--(-1.1,-1.2)--(1.1,-1.2)[sharp corners]--(1.1,1.1)--cycle;
+  \draw[rounded corners=5pt](-1.1,1.3)--(-1.1,-1.2)--(1.1,-1.2)[sharp corners]--(1.1,1.3)arc(180:90:0.1)--(-1.2,1.4)arc(90:0:0.1);
+  \draw[very thin](0.8,-0.5)--++(0.7,0)node[right]{冷水};
+  \end{scope}
+  \draw[double=brown,double distance=3pt](1.2,2.6)--(1.5,2.6)(2.5,2.6)--(2.8,2.6);
+  \draw[double=brown,double distance=2pt](1.5,2.6)--(2.5,2.6);
+  \draw[fill=lightgray,rounded corners](2.05,2.28)--(1.9,2.78)[rounded corners=1.5pt]--(2.25,2.38)--cycle;
+\end{tikzpicture}
+\end{document}

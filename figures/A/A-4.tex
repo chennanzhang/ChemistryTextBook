@@ -1,0 +1,86 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{backgrounds}
+\newcommand{\VolumetricFlask}[1][]{
+  \begin{scope}[#1]
+    \fill[rounded corners,cyan!40!white,fill opacity=0.3](0.15,2.25)--(0.15,1.2)[sharp corners]..controls(1,0.3)and(1.1,-0.6)..(290:1)--(250:1)[rounded corners=3pt]..controls(-1.1,-0.6)and(-1,0.3)..(-0.15,1.2)[sharp corners]--(-0.15,2.25)to[bend right](0.15,2.25);
+    \draw[ultra thin](-0.15,2.2)--(0.15,2.2);
+    \draw[rounded corners](0.15,4.0)--(0.15,1.2)[sharp corners]..controls(1,0.3)and(1.1,-0.6)..(290:1)--(250:1)[rounded corners=3pt]..controls(-1.1,-0.6)and(-1,0.3)..(-0.15,1.2)[sharp corners]--(-0.15,4.0)--cycle;
+    \begin{scope}[yshift=4.1cm]
+      \draw[fill=cyan!20!white](-0.14,-0.3)rectangle(0.14,-0.1);
+      \draw[ball color=cyan!20!white](0,0)circle(0.1);
+      \draw[fill=cyan!10!white](-0.2,-0.05)rectangle(0.2,-0.1);
+    \end{scope}
+  \end{scope}
+}
+\newcommand{\handright}[1][]{
+  \begin{scope}[#1,on background layer]
+    \draw[very thin,fill=pink!10!orange!10]
+    (0.605,0.218)..controls(0.571,0.295)and(0.466,0.272)..
+(0.425,0.345)..controls(0.347,0.460)and(0.333,0.529)..
+(0.365,0.562)..controls(0.377,0.572)and(0.383,0.568)..
+(0.388,0.561)..controls(0.394,0.574)and(0.413,0.553)..
+(0.417,0.526)..controls(0.425,0.511)and(0.457,0.510)..
+(0.462,0.495)..controls(0.474,0.464)and(0.490,0.451)..
+(0.538,0.438)..controls(0.595,0.402)and(0.637,0.345)..(0.675,0.300);
+  \draw[very thin](0.388,0.561)..controls(0.391,0.530)and(0.394,0.481)..
+(0.410,0.455)..controls(0.437,0.412)and(0.462,0.386)..(0.482,0.378)
+(0.417,0.526)..controls(0.431,0.483)and(0.463,0.435)..(0.474,0.411);
+  \end{scope}
+  \begin{scope}[#1]
+    \draw[very thin,fill=pink!10!orange!10](0.500,0.369)..controls(0.537,0.415)and(0.444,0.529)..
+(0.471,0.548)..controls(0.486,0.556)and(0.536,0.490)..
+(0.550,0.465)..controls(0.566,0.425)and(0.594,0.428)..
+(0.623,0.391)..controls(0.661,0.348)and(0.645,0.342)..(0.675,0.300);
+\draw[very thin](0.475,0.515)..controls(0.489,0.512)and(0.496,0.522)..(0.495,0.532)
+(0.444,0.493)..controls(0.454,0.493)and(0.458,0.491)..(0.461,0.489)
+(0.410,0.497)..controls(0.414,0.495)and(0.419,0.495)..(0.423,0.498)
+(0.425,0.459)..controls(0.432,0.461)and(0.435,0.466)..(0.437,0.470)
+(0.416,0.407)..controls(0.426,0.404)and(0.434,0.404)..(0.439,0.405)
+(0.394,0.455)..controls(0.401,0.452)and(0.406,0.451)..(0.410,0.450);
+  \end{scope}
+}
+\newcommand{\handleft}[1][]{
+  \begin{scope}[#1,on background layer]
+    \draw[very thin,fill=pink!10!orange!10](0.571,0.825)..controls(0.563,0.833)and(0.540,0.854)..
+(0.532,0.879)..controls(0.499,0.886)and(0.474,0.961)..
+(0.471,0.981)..controls(0.465,1.005)and(0.425,1.024)..
+(0.418,1.006)..controls(0.408,0.990)and(0.393,0.995)..
+(0.402,1.035)..controls(0.392,1.038)and(0.391,1.048)..
+(0.392,1.090)..controls(0.390,1.108)and(0.446,1.142)..
+(0.518,1.117)..controls(0.585,1.050)and(0.627,0.954)..(0.666,0.889);
+  \end{scope}
+  \begin{scope}[#1]
+    \draw[very thin,fill=pink!10!orange!10](0.550,1.033)..controls(0.507,1.021)and(0.454,1.038)..
+(0.439,1.033)..controls(0.425,1.029)and(0.426,1.013)..
+(0.447,1.000)..controls(0.468,0.983)and(0.505,0.992)..
+(0.524,0.969)..controls(0.535,0.958)and(0.543,0.953)..(0.561,0.950)
+(0.531,1.071)..controls(0.514,1.089)and(0.517,1.107)..
+(0.518,1.117)..controls(0.499,1.136)and(0.497,1.147)..
+(0.503,1.164)..controls(0.490,1.162)and(0.474,1.169)..
+(0.477,1.183)..controls(0.461,1.174)and(0.426,1.180)..
+(0.425,1.201)..controls(0.425,1.210)and(0.446,1.214)..
+(0.490,1.206)..controls(0.536,1.199)and(0.589,1.138)..
+(0.612,1.049)..controls(0.635,1.001)and(0.643,0.946)..(0.670,0.897);
+\draw[very thin](0.456,1.207)..controls(0.454,1.198)and(0.439,1.195)..(0.425,1.201)
+(0.503,1.164)..controls(0.509,1.167)and(0.511,1.167)..(0.514,1.166)
+(0.525,1.116)..controls(0.529,1.126)and(0.537,1.134)..(0.543,1.136)
+(0.548,1.069)..controls(0.542,1.053)and(0.535,1.041)..(0.524,1.035)
+(0.489,1.002)..controls(0.498,1.010)and(0.507,1.011)..(0.512,1.009)
+(0.450,1.032)..controls(0.468,1.018)and(0.458,1.006)..(0.445,1.005)
+(0.403,1.018)..controls(0.409,1.024)and(0.416,1.021)..(0.413,1.007)
+(0.396,1.061)..controls(0.406,1.071)and(0.411,1.064)..(0.406,1.041)
+(0.407,1.036)..controls(0.411,1.039)and(0.416,1.043)..(0.422,1.052);
+  \end{scope}
+}
+\begin{document}
+\small
+\begin{tikzpicture}[scale=1.2]
+  \VolumetricFlask[scale=0.6]
+  \handright[xshift=-1.4cm,yshift=-1.9cm,scale=2.7]
+  \handleft[xshift=-1.22cm,yshift=-0.68cm,scale=2.7]
+\end{tikzpicture}
+\end{document}

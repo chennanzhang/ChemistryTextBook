@@ -1,0 +1,128 @@
+\documentclass{standalone}
+\usepackage{tikz,tkz-euclide}
+\usepackage{ctex}
+\setCJKmainfont{Noto Serif CJK SC}
+\usepackage{mhchem,siunitx}
+\usetikzlibrary{patterns,patterns.meta,calc}
+\usetikzlibrary {decorations.pathmorphing, decorations.pathreplacing, decorations.shapes}
+\newcommand{\retortstand}[4][]{
+  \begin{scope}[#1]
+    \draw[fill=darkgray](0,0)--++(#3,0)--++(0.05,-0.05)--++(0,-0.15)--++(-0.4,0)--++(0,0.05)--++(-#2-#3+0.7,0)--++(0,-0.05)--++(-0.4,0)--++(0,0.15)--++(0.05,0.05)--cycle;
+    \draw(-#2-0.05,-0.05)--(#3+0.05,-0.05);
+    \fill[left color=lightgray,right color=lightgray,middle color=white](-0.05,0)rectangle(0.05,#4);
+    \fill[left color=gray,right color=gray,middle color=white](-0.07,0)rectangle(0.07,0.07);
+  \end{scope}
+}
+\newcommand{\beaker}[5][]{
+  \begin{scope}[#1]
+    \fill[#5,rounded corners=1mm](-#2/2,#4)--(-#2/2,0)--(#2/2,0)--(#2/2,#4);
+    \draw[fill=cyan!10!white,fill opacity=0.3](#2/2+0.07,#3)arc(90:180:0.07)[rounded corners=1mm]--(#2/2,0)--(-#2/2,0)[rounded corners=0.5mm]--(-#2/2,#3-0.15)[sharp corners]--++(-0.1,0.1)--(-#2/2,#3)--cycle;
+  \end{scope}
+}
+\newcommand{\JointClipC}[3][]{
+  \begin{scope}[#1]
+    \fill[top color=gray,bottom color=gray,middle color=white](-0.2,-0.03)rectangle(#2,0.03);
+    \fill[lightgray](#2,-0.07)rectangle++(#3,0.14);
+    \fill[left color=darkgray,right color=darkgray,middle color=white](-0.1,-0.1)rectangle(0.1,0.1);
+    \draw[line cap=round,very thick](-135:0.07)--(45:0.07);
+    \fill[ball color=black](0,0)circle(1.4pt);
+  \end{scope}
+}
+\newcommand{\JointClipP}[3][]{
+  \begin{scope}[#1]
+    \fill[top color=gray,bottom color=gray,middle color=white](-0.2,-0.03)rectangle(#2,0.03);
+    \fill[lightgray](#2,-0.02)rectangle++(#3,0.04);
+    \fill[left color=darkgray,right color=darkgray,middle color=white](-0.1,-0.1)rectangle(0.1,0.1);
+    \draw[line cap=round,very thick](-135:0.07)--(45:0.07);
+    \fill[ball color=black](0,0)circle(1.4pt);
+  \end{scope}
+}
+\newcommand{\AlcoholBurner}[1][]{
+  \begin{scope}[#1]
+    \draw[ultra thick,darkgray]( 0.000,0.700)..controls( 0.000,0.300)and( 0.296,0.300)..( 0.197,0.123)..controls( 0.136,0.032)and(-0.021,0.017)..(-0.222,0.018);
+    \fill[rounded corners=0.8mm,cyan!60,opacity=0.5](-0.375,0.3)--(-0.3,0)--(0.3,0)--(0.375,0.3);
+    \fill[left color=gray,right color=gray,middle color=white](-0.1010,0.72)--(-0.09,0.5)--(0.09,0.5)--(0.1010,0.72);
+    \draw[rounded corners=0.8mm,fill=cyan!20,fill opacity=0.4](-0.1,0.7)--(-0.15,0.5)--(-0.4,0.4)--(-0.3,0)--(0.3,0)--(0.4,0.4)--(0.15,0.5)[sharp corners]--(0.1,0.7)--cycle;
+  \end{scope}
+}
+\newcommand{\FlameThick}[2][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](-0.4,{0.3-0.4*sin(#2)})to[in=100,out=-70](-0.08,0)--(0.08,0)to[in=-110,out=80](0.4,{0.3+0.4*sin(#2)});
+    \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+\newcommand{\ClipedTube}[4][]{
+  \begin{scope}[#1,rotate=#2]
+    \fill[yellow!50!black](-#3/3*2+0.1,0.15)--(-#3/3*2,0.15)arc(90:270:0.15)--++(0.4,0)to[bend right=10](-#3/3*2+0.1,0.15);
+    \fill[pattern={Dots[distance=0.6pt,radius=0.15pt,angle=40]},pattern color=darkgray](-#3/3*2+0.1,0.15)--(-#3/3*2,0.15)arc(90:270:0.15)--++(0.4,0)to[bend right=10](-#3/3*2+0.1,0.15);
+    \draw[top color=yellow!10!white,bottom color=yellow!50!white,fill opacity=0.4](-#3/3*2,0.15)--(#3/3,0.15)arc(-90:0:0.05)--(#3/3+0.05,-0.2)arc(0:90:0.05)--(-#3/3*2,-0.15)arc(270:90:0.15)--cycle;
+    \draw[fill=darkgray](-0.1,0.15)rectangle(0.1,0.1)(-0.1,-0.15)rectangle(0.1,-0.1);
+    \draw[line width=1pt](-0.07,0.21)--(-0.03,0.17)--(0.03,0.17)--(0.07,0.21);
+  \end{scope}
+}
+\newcommand{\UTube}[3][]{
+  \begin{scope}[#1]
+    \draw[line join=round](0.35cm+0.7pt,#2+0.35)--++(-0.4pt,0.2)--++(-0.6pt,0)--(0.35cm-0.7pt,#2+0.35);
+    \draw[double distance=1.3pt](0.35,#2-0.2)--++(0,0.55);
+    \fill[cyan!40!white,fill opacity=0.5](#3:0.5)arc(#3:-#3-180:0.5)--cycle;
+    \fill[left color=gray,right color=gray,middle color=white](-0.5,#2-0.1)rectangle++(0.3,0.25);
+    \fill[left color=gray,right color=gray,middle color=white](0.5,#2-0.1)rectangle++(-0.3,0.25);
+    \draw[fill=cyan!20!white,fill opacity=0.2](-0.5,0)arc(180:360:0.5)--(0.5,#2)arc(180:90:0.05)--++(-0.4,0)arc(90:0:0.05)--(0.2,0)arc(0:-180:0.2)--(-0.2,#2)arc(180:90:0.05)--++(-0.4,0)arc(90:0:0.05)--cycle;
+  \end{scope}
+}
+\newcommand{\VTube}[3][]{
+  \begin{scope}[#1]
+    \fill[cyan!40!white,fill opacity=0.5](-0.15,#3)--(-0.15,0)arc(180:360:0.15)--(0.15,#3)--cycle;
+    \fill[left color=gray,right color=gray,middle color=white](-0.15,#2-0.15)rectangle++(0.3,0.25);
+    \foreach \y in {-0.1,0,0.1,0.3}
+    {\draw[very thin,fill=lightgray!20](0.1*rand,\y*rand)circle(0.8pt);}
+    \draw[fill=cyan!20!white,fill opacity=0.2](-0.2,#2)arc(90:0:0.05)--(-0.15,0)arc(180:360:0.15)--(0.15,#2-0.05)arc(180:90:0.05)--cycle;
+  \end{scope}
+}
+\newcommand{\Flame}[1][]{
+  \begin{scope}[#1]
+    \fill[top color=red,bottom color=orange](0,0.45)to[in=130,out=-120](-0.06,0)--(0.06,0)to[in=-70,out=50](0,0.45);
+    \fill[top color=red!70!orange,bottom color=orange!70](0,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0,0.3);
+    \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+\newcommand{\HorTube}[2][]{
+   \begin{scope}[#1,rotate=#2]
+    \draw[double,double distance=1.5pt](1.75,0)[rounded corners=4pt]--(3.0,0)--++(-#2-90:0.55);
+    \draw[double=brown,double distance=2pt](2.4,0)--(2.8,0);
+    \fill[top color=darkgray,bottom color=darkgray,middle color=white](-2.25,0.25)rectangle(-1.85,-0.25)(2.25,0.25)rectangle(1.85,-0.25);
+    \fill[pattern={Dots[radius=0.3pt,distance=1pt,angle=45]},pattern color=darkgray](-0.4,-0.25)to[bend left=40](0.6,-0.25)--cycle;
+    \draw[fill=cyan!10!white,fill opacity=0.4](-2.04,0.29)arc(180:270:0.04)--(2,0.25)arc(-90:0:0.04)--(2.04,-0.29)arc(0:90:0.04)--(-2,-0.25)arc(90:180:0.04)--cycle;
+    \draw[fill=darkgray](-1.6,0.25)rectangle(-1.4,0.2)(-1.6,-0.25)rectangle(-1.4,-0.2)(1.6,0.25)rectangle(1.4,0.2)(1.6,-0.25)rectangle(1.4,-0.2);
+    \draw[line width=1pt](-1.58,0.30)--(-1.54,0.26)--(-1.46,0.26)--(-1.42,0.30)(1.58,0.30)--(1.54,0.26)--(1.46,0.26)--(1.42,0.30);
+  \end{scope}
+}
+\newcommand{\Lamp}[1][]{
+  \begin{scope}[#1]
+    \draw[very thick,brown](-0.1,-0.3)--(0.2,-0.3)(0.2,-0.35)--(0.2,-0.25);
+    \fill[left color=brown!50!red,right color=brown!50!red,middle color=white](0.05,0)rectangle(0.15,-0.4);
+    \fill[left color=brown!50!red,right color=brown!50!red,middle color=white](-0.05,-0.2)rectangle(0.05,-0.6);
+    \fill[left color=brown!50!red,right color=brown!50!red,middle color=white](-0.08,-0.5)rectangle(0.08,-0.6);
+    \fill[ball color=brown!50!red](-0.5,-1.1)--(-0.5,-1.0)--(-0.4,-1.0)arc(180:0:0.4)--(0.5,-1.0)--(0.5,-1.1)--cycle;
+    % \fill[top color=red,bottom color=orange](-0.4,{0.3-0.4*sin(#2)})to[in=100,out=-70](-0.08,0)--(0.08,0)to[in=-110,out=80](0.4,{0.3+0.4*sin(#2)});
+    % \fill[top color=red!70!orange,bottom color=orange!70](-0.03,0.3)to[in=100,out=-120](-0.04,0)--(0.04,0)to[in=-70,out=50](0.03,0.3);
+    % \fill[top color=red!30!orange,bottom color=orange!30](0,0.2)to[bend right=20](-0.015,0)--(0.015,0)to[bend right=20](0,0.2);
+  \end{scope}
+}
+
+\begin{document}
+\small
+\begin{tikzpicture}[>=stealth,scale=1.2,inner sep=2pt]
+  \retortstand[xshift=1.5cm]{0.7}{0.7}{3.5}
+  \retortstand[xshift=-1.5cm]{0.7}{0.71}{3.5}
+  \HorTube[yshift=2.5cm]{-2}
+  \draw[thick](-3.5,-0.2)--(5,-0.2);
+  \FlameThick[xshift=1mm,yshift=1.95cm]{-2}
+  \Lamp[yshift=1.95cm]
+  \fill[brown!80!black](-0.5,0.85)rectangle(0.5,-0.2);
+  \UTube[xshift=3.35cm,yshift=0.8cm]{1.2}{-30}
+  \beaker[xshift=3.35cm,yshift=-0.2cm]{1.2}{1.5}{1.3}{cyan!30!white,fill opacity=0.3}
+  \Flame[xshift=3.7cm,yshift=2.55cm,scale=0.4]
+\end{tikzpicture}
+\end{document}
