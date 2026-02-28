@@ -27,6 +27,8 @@ A.pdf
 B.pdf
 C.pdf
 Chemistry*.pdf
+Chemistry[1-9]*.tex
+ChemistryI*.tex
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
